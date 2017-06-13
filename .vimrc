@@ -1,6 +1,6 @@
 "color scheme
 let g:rehash256 = 1
-colorscheme molokai 
+colorscheme monokai 
 syntax enable
 
 "enable mouse
