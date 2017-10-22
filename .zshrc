@@ -1,15 +1,4 @@
 
-# added by Anaconda3 2.4.1 installer
-export PATH="/Users/Elliott/anaconda/bin:$PATH"
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 alias ls="ls -G"
 alias ll="ls -l"
 alias psef="ps -ef | grep"
