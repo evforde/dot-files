@@ -12,12 +12,10 @@ alias ll="ls -l"
 alias psef="ps -ef | grep"
 alias ns="npm start"
 alias ni="npm install"
-alias ed="electron ."
 
 alias ga="git add ."
 alias gc="git commit -m"
 alias gp="git push origin master"
-alias gph="git push heroku master"
 alias gs="git status"
 alias gpull="git pull origin master"
 

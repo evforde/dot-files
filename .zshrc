@@ -9,7 +9,6 @@ alias ni="npm install"
 alias ga="git add ."
 alias gc="git commit -m"
 alias gp="git push origin master"
-alias gph="git push heroku master"
 alias gs="git status"
 alias gpull="git pull origin master"
 
