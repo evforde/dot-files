@@ -1,6 +1,6 @@
 "color scheme
 let g:rehash256 = 1
-colorscheme monokai 
+colorscheme molokai 
 syntax enable
 
 "enable mouse
@@ -38,7 +38,17 @@ nnoremap gV `[v`] "highlight last inserted text
 inoremap jk <esc> "jk becomes escape key
 nnoremap <leader>u :GundoToggle<CR> " toggle gundo
 
-nnoremap <leader>s :mksession<CR> "saves current vim session, reopen with vim -S
+nnoremap <leader>s :mksession<CR> "saves current vim session, reopen with vim -R
+
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+au BufNewFile,BufRead SCons* set filetype=scons
 
 augroup configgroup
     autocmd!
