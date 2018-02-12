@@ -1,2 +1,2 @@
 #!/bin/bash
-cp ./molokai/colors/molokai.vim ~/.vim/colors/molokai.vim
+cp ./molokai.vim ~/.vim/colors/molokai.vim
