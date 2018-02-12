@@ -1,3 +1,3 @@
 #!/bin/bash
-mkdir ~/.vim/colors
+mkdir -p ~/.vim/colors
 cp ./molokai.vim ~/.vim/colors/molokai.vim
