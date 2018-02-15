@@ -9,6 +9,7 @@ set mouse=a
 "set spacing
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
 
 "UI configuration
 set number
@@ -34,9 +35,11 @@ nnoremap E $ "move to end of line
 nnoremap ^ <nop>
 nnoremap $ <nop>
 
-nnoremap gV `[v`] "highlight last inserted text
-inoremap jk <esc> "jk becomes escape key
-nnoremap <leader>u :GundoToggle<CR> " toggle gundo
+nnoremap gV `[v`]
+inoremap jk <esc>
+nnoremap <leader>u :GundoToggle<CR>
+nnoremap <c-k> gt
+nnoremap <c-j> gT
 
 nnoremap <leader>s :mksession<CR> "saves current vim session, reopen with vim -R
 
