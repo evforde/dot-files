@@ -12,7 +12,7 @@ alias gp="git push origin master"
 alias gs="git status"
 alias gl="git lol"
 alias gd="git diff"
-alias gpull="git pull origin master"
+alias gpl="git pull origin master"
 
 autoload -U colors
 colors

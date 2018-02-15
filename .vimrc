@@ -37,11 +37,9 @@ nnoremap $ <nop>
 
 nnoremap gV `[v`]
 inoremap jk <esc>
-nnoremap <leader>u :GundoToggle<CR>
 nnoremap <c-k> gt
 nnoremap <c-j> gT
-
-nnoremap <leader>s :mksession<CR> "saves current vim session, reopen with vim -R
+set virtualedit+=onemore
 
 set number relativenumber
 
