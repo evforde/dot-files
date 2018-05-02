@@ -1,6 +1,7 @@
 
 alias ls="ls -G"
 alias ll="ls -l"
+alias grep="grep --color=auto"
 
 alias g="git"
 alias ga="git add ."
