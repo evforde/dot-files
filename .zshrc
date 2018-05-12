@@ -17,7 +17,7 @@ alias gpl="git pull origin master"
 
 autoload -U colors
 colors
-export PS1="${fg[green]}%m:${fg[yellow]}%1~ ${fg[cyan]}%n"$'\n'"${fg[red]}$ ${fg[white]}"
+export PS1="${fg[green]}%D{%H:%M:%S} ${fg[magenta]}%m:${fg[yellow]}%1~ ${fg[cyan]}%n"$'\n'"${fg[red]}$ ${fg[white]}"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
