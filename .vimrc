@@ -14,6 +14,7 @@ set shiftwidth=4
 
 "UI configuration
 set number
+set number relativenumber
 set showcmd
 set cursorline
 filetype indent on
@@ -24,6 +25,8 @@ set showmatch
 "search settings
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 "folding
 set foldenable
@@ -36,13 +39,14 @@ nnoremap E $ "move to end of line
 nnoremap ^ <nop>
 nnoremap $ <nop>
 
-nnoremap gV `[v`]
+let mapleader=","
+nnoremap <leader><space> :noh<CR>
+nnoremap <leader>s :mksession<CR>
+
 inoremap jk <esc>
 nnoremap <c-k> gt
 nnoremap <c-j> gT
 set virtualedit+=onemore
-
-set number relativenumber
 
 augroup numbertoggle
   autocmd!
@@ -51,26 +55,11 @@ augroup numbertoggle
 augroup END
 
 au BufNewFile,BufRead SCons* set filetype=scons
-
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
-    autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-                \:call <SID>StripTrailingWhitespaces()
-    autocmd FileType java setlocal noexpandtab
-    autocmd FileType java setlocal list
-    autocmd FileType java setlocal listchars=tab:+\ ,eol:-
-    autocmd FileType java setlocal formatprg=par\ -w80\ -T4
-    autocmd FileType php setlocal expandtab
-    autocmd FileType php setlocal list
-    autocmd FileType php setlocal listchars=tab:+\ ,eol:-
-    autocmd FileType php setlocal formatprg=par\ -w80\ -T4
-    autocmd FileType ruby setlocal tabstop=2
-    autocmd FileType ruby setlocal shiftwidth=2
-    autocmd FileType ruby setlocal softtabstop=2
-    autocmd FileType ruby setlocal commentstring=#\ %s
     autocmd FileType python setlocal commentstring=#\ %s
-    autocmd BufEnter *.cls setlocal filetype=java
+    autocmd FileType python setlocal foldmethod=indent
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
     autocmd BufEnter *.sh setlocal tabstop=2
