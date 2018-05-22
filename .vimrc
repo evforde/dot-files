@@ -28,6 +28,19 @@ set hlsearch
 set ignorecase
 set smartcase
 
+"Close and write files
+map qqq :wq<Enter>
+
+"Common mistakes
+:command W w
+:command Q q
+:command Wq wq
+:command WQ wq
+
+"Faster vertical moving
+nnoremap J 10j
+nnoremap K 10k
+
 "folding
 set foldenable
 set foldlevelstart=10
@@ -67,3 +80,8 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
 
+" add ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
