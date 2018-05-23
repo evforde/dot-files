@@ -29,7 +29,8 @@ set ignorecase
 set smartcase
 
 "Close and write files
-map qqq :wq<Enter>
+map wqq :wq<Enter>
+map qq :q<Enter>
 
 "Common mistakes
 :command W w
@@ -44,7 +45,7 @@ nnoremap K 10k
 "folding
 set foldenable
 set foldlevelstart=10
-nnoremap <space> za
+"nnoremap <space> za
 set foldmethod=syntax
 
 nnoremap B ^ "move to beginning of line
@@ -56,9 +57,14 @@ let mapleader=","
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
 
+" escape is far
 inoremap jk <esc>
+
+" ctrl jk for tabs, ctrl hl for windows
 nnoremap <c-k> gt
 nnoremap <c-j> gT
+map <c-h> <c-w>h
+map <c-l> <c-w>l
 set virtualedit+=onemore
 
 augroup numbertoggle
@@ -80,7 +86,26 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
 
-" add ctrlp
+" nertw defaults
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 3
+let g:netrw_winsize = 20
+let g:netrw_altv = 1
+map - :Vexplore<enter>
+" augroup projectdrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+
+" ctrl + i for ith window - doesn't work
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+endwhile
+
+" ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
