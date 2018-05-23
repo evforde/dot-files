@@ -10,3 +10,8 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 brew install ctags
+
+git config --global alias.lol "log --graph --oneline --decorate --color --all"
+git config --global user.name "Elliott Forde"
+echo "Don't forget to set your GitHub email!"
+

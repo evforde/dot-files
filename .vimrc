@@ -14,7 +14,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-"UI configuration
+" UI configuration
 set number
 set number relativenumber
 set showcmd
@@ -24,16 +24,14 @@ set wildmenu
 set lazyredraw
 set showmatch
 
-"search settings
+" search settings
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 
-"Close and write files
+" make things a little easier
 map qq :q<Enter>
-
-"Common mistakes
 :command W w
 :command Q q
 :command Wq wq
@@ -43,36 +41,39 @@ map qq :q<Enter>
 nnoremap J 10j
 nnoremap K 10k
 
-"folding
+" folding
 set foldenable
 set foldlevelstart=10
 nnoremap <space> za
 set foldmethod=syntax
 
-nnoremap B ^ "move to beginning of line
-nnoremap E $ "move to end of line
-nnoremap ^ <nop>
-nnoremap $ <nop>
-
-let mapleader=","
+" leader stuff
+let mapleader=" "
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
+noremap <leader>j gt
+noremap <leader>k gT
+" ctrl + i for ith tab
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 " escape is far
 inoremap jk <esc>
 
 " ctrl jk for tabs, ctrl hl for windows
-nnoremap <c-k> gt
-nnoremap <c-j> gT
+map <c-j> <c-w>j
+map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
 set virtualedit+=onemore
-
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
 
 au BufNewFile,BufRead SCons* set filetype=scons
 augroup configgroup
@@ -94,23 +95,23 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 20
 let g:netrw_altv = 1
 
-" ctrl + i for ith window - doesn't work
-let i = 1
-while i <= 9
-    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-    let i = i + 1
-endwhile
-
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <leader>. :CtrlPTag<cr>
+" auto open in new tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " exit if nerdtree is last window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map - :NERDTree<enter>
+map - :NERDTreeFind<enter>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
