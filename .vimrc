@@ -45,7 +45,7 @@ nnoremap K 10k
 "folding
 set foldenable
 set foldlevelstart=10
-"nnoremap <space> za
+nnoremap <space> za
 set foldmethod=syntax
 
 nnoremap B ^ "move to beginning of line
