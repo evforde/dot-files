@@ -3,6 +3,8 @@ alias ls="ls -G"
 alias ll="ls -l"
 alias grep="grep --color=auto"
 
+alias mctags="ctags -R -f ./.tags ."
+
 alias g="git"
 alias ga="git add ."
 alias gc="git commit -m"

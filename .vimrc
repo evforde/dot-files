@@ -1,6 +1,8 @@
+execute pathogen#infect()
+
 "color scheme
 let g:rehash256 = 1
-colorscheme molokai 
+colorscheme molokai
 syntax enable
 
 "enable mouse
@@ -29,7 +31,6 @@ set ignorecase
 set smartcase
 
 "Close and write files
-map wqq :wq<Enter>
 map qq :q<Enter>
 
 "Common mistakes
@@ -89,14 +90,9 @@ augroup END
 " nertw defaults
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-let g:netrw_browse_split = 3
+let g:netrw_browse_split = 4
 let g:netrw_winsize = 20
 let g:netrw_altv = 1
-map - :Vexplore<enter>
-" augroup projectdrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
 
 " ctrl + i for ith window - doesn't work
 let i = 1
@@ -110,3 +106,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+nnoremap <leader>. :CtrlPTag<cr>
+
+" nerdtree
+autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" exit if nerdtree is last window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map - :NERDTree<enter>
