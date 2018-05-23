@@ -44,15 +44,13 @@ nnoremap K 10k
 " folding
 set foldenable
 set foldlevelstart=10
-nnoremap <space> za
+nnoremap , za
 set foldmethod=syntax
 
 " leader stuff
 let mapleader=" "
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
-noremap <leader>j gt
-noremap <leader>k gT
 " ctrl + i for ith tab
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -68,12 +66,26 @@ noremap <leader>0 :tablast<cr>
 " escape is far
 inoremap jk <esc>
 
-" ctrl jk for tabs, ctrl hl for windows
+" ctrl ui for tabs, hjkl for windows
+noremap <c-u> gT
+noremap <c-i> gt
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
 set virtualedit+=onemore
+
+" highlight past 80 characters
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" Highlight line in active window
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
 
 au BufNewFile,BufRead SCons* set filetype=scons
 augroup configgroup
@@ -113,5 +125,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " exit if nerdtree is last window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map - :NERDTreeFind<enter>
+map = :NERDTreeToggle<enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
