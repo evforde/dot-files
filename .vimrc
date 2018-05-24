@@ -51,7 +51,7 @@ set foldmethod=syntax
 let mapleader=" "
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
-" ctrl + i for ith tab
+" space + i for ith tab
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -65,6 +65,7 @@ noremap <leader>0 :tablast<cr>
 
 " escape is far
 inoremap jk <esc>
+inoremap jj <esc>
 
 " ctrl ui for tabs, hjkl for windows
 noremap <c-u> gT
@@ -76,14 +77,15 @@ map <c-l> <c-w>l
 set virtualedit+=onemore
 
 " highlight past 80 characters
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+set colorcolumn=80
 
 " Highlight line in active window
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set cul
+    autocmd WinEnter * set colorcolumn=80
     autocmd WinLeave * set nocul
+    autocmd WinLeave * set colorcolumn=0
 augroup END
 
 
