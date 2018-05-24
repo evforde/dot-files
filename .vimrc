@@ -102,13 +102,6 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
 
-" nertw defaults
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 20
-let g:netrw_altv = 1
-
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -125,7 +118,7 @@ let g:ctrlp_prompt_mappings = {
 autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " exit if nerdtree is last window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map - :NERDTreeFind<enter>
 map = :NERDTreeToggle<enter>
 let NERDTreeMinimalUI = 1
