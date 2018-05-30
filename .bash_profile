@@ -1,7 +1,7 @@
 
 alias ls="ls -G"
 alias ll="ls -l"
-alias grep="grep --color=auto"
+alias grep="grep --color=auto --exclude=\*.{swp} -I"
 
 alias mctags="ctags -R -f ./.tags ."
 

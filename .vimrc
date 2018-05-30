@@ -36,6 +36,7 @@ map qq :q<Enter>
 :command Q q
 :command Wq wq
 :command WQ wq
+nnoremap m ``
 
 "Faster vertical moving
 nnoremap J 10j
@@ -76,10 +77,8 @@ map <c-h> <c-w>h
 map <c-l> <c-w>l
 set virtualedit+=onemore
 
-" highlight past 80 characters
+" highlight past 80 characters in active window
 set colorcolumn=80
-
-" Highlight line in active window
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set cul
@@ -101,6 +100,15 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
+
+" git commands on current file
+fun! GitCommand(command)
+  silent! !clear
+  exec "!git " . a:command . " %"
+endfun
+map <leader>d :call GitCommand("diff") <CR>
+map <leader>l :call GitCommand("lol") <CR>
+map <leader>b :call GitCommand("blame") <CR>
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
