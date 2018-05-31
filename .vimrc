@@ -30,6 +30,12 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" navigate around in insert mode
+inoremap <c-h> <Left>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-l> <Right>
+
 " make things a little easier
 map qq :q<Enter>
 :command W w
