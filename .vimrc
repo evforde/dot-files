@@ -36,7 +36,12 @@ map qq :q<Enter>
 :command Q q
 :command Wq wq
 :command WQ wq
+" go to top of file
+nnoremap T :0<CR>
+" go to last touched line
 nnoremap m ``
+" open tags in new tab
+nnoremap <c-\> <c-w><c-]><c-w>T
 
 "Faster vertical moving
 nnoremap J 10j
@@ -131,3 +136,5 @@ map - :NERDTreeFind<enter>
 map = :NERDTreeToggle<enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeIgnore = ['\.pyc$']
