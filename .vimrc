@@ -30,11 +30,23 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" navigate around in insert mode
+" navigation
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
 inoremap <c-h> <Left>
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
 inoremap <c-l> <Right>
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
 
 " make things a little easier
 map qq :q<Enter>
@@ -49,7 +61,7 @@ nnoremap m ``
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
 
-"Faster vertical moving
+" faster vertical moving
 nnoremap J 10j
 nnoremap K 10k
 
@@ -61,6 +73,7 @@ set foldmethod=syntax
 
 " leader stuff
 let mapleader=" "
+nnoremap <leader>w :w<cr>
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
 " space + i for ith tab
@@ -98,7 +111,7 @@ augroup BgHighlight
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
-
+" filetype customizations
 au BufNewFile,BufRead SCons* set filetype=scons
 augroup configgroup
     autocmd!
@@ -136,8 +149,6 @@ let g:ctrlp_prompt_mappings = {
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" exit if nerdtree is last window open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map - :NERDTreeFind<enter>
 map = :NERDTreeToggle<enter>
 let NERDTreeMinimalUI = 1
