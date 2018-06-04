@@ -5,7 +5,7 @@ alias grep="grep --color=auto --exclude=\*.{swp} -I"
 
 alias g="git"
 alias gb="git branch"
-alias ga="git add ."
+alias ga="git add"
 alias gc="git commit -m"
 alias gca="git commit --amend"
 alias gco="git checkout"
