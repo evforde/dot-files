@@ -15,7 +15,6 @@ set softtabstop=4
 set shiftwidth=4
 
 " UI configuration
-set number
 set number relativenumber
 set showcmd
 set cursorline
@@ -23,6 +22,8 @@ filetype indent on
 set wildmenu
 set lazyredraw
 set showmatch
+set laststatus=2
+set splitright
 
 " search settings
 set incsearch
@@ -30,7 +31,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" navigation
+" arrow keys
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <Up> <Nop>
@@ -39,14 +40,18 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
+vmap <Left> <gv
+vmap <Right> >gv
+nnoremap < V<
+nnoremap > V>
+
+" naviagtion in insert
 inoremap <c-h> <Left>
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
 inoremap <c-l> <Right>
-nmap <Left> <<
-nmap <Right> >>
-vmap <Left> <gv
-vmap <Right> >gv
+inoremap <c-w> <esc>lwi
+inoremap <c-b> <esc>lbi
 
 " make things a little easier
 map qq :q<Enter>
@@ -60,10 +65,16 @@ nnoremap T :0<CR>
 nnoremap m ``
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
+" yank leaves cursor at bottom of selection
+vnoremap y ygv<esc>
+" allow backspace in normal mode
+nnoremap <bs> i<bs><esc>l
 
 " faster vertical moving
 nnoremap J 10j
 nnoremap K 10k
+vnoremap J 10j
+vnoremap K 10k
 
 " folding
 set foldenable
@@ -75,7 +86,7 @@ set foldmethod=syntax
 let mapleader=" "
 nnoremap <leader>w :w<cr>
 nnoremap <leader><space> :noh<CR>
-nnoremap <leader>s :mksession<CR>
+nnoremap <leader>s :mksession!<CR>
 " space + i for ith tab
 noremap <leader>1 1gt
 noremap <leader>2 2gt
