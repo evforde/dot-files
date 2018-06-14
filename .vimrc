@@ -24,6 +24,7 @@ set lazyredraw
 set showmatch
 set laststatus=2
 set splitright
+set splitbelow
 
 " search settings
 set incsearch
@@ -60,7 +61,7 @@ map qq :q<Enter>
 :command Wq wq
 :command WQ wq
 " go to top of file
-nnoremap T :0<CR>
+nnoremap <silent> T :0<CR>
 " go to last touched line
 nnoremap m ``
 " open tags in new tab
@@ -69,12 +70,26 @@ nnoremap <c-\> <c-w><c-]><c-w>T
 vnoremap y ygv<esc>
 " allow backspace in normal mode
 nnoremap <bs> i<bs><esc>l
+" replace with r
+nnoremap r *Ncgn
+" copy with ctrl y
+" fun! Command(command)
+"   silent! !clear
+"   exec "!" . a:command .
+" endfun
+" vnoremap <c-y> :call Command("echo .tmp | pbcopy; rm .tmp")
 
 " faster vertical moving
-nnoremap J 10j
-nnoremap K 10k
-vnoremap J 10j
-vnoremap K 10k
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
+
+" buffers
+nnoremap <c-l> :ls<cr>
+nnoremap <c-n> :bN<cr>
+nnoremap <c-m> :bn<cr>
+nnoremap <leader>q :bd<cr>
 
 " folding
 set foldenable
@@ -85,7 +100,7 @@ set foldmethod=syntax
 " leader stuff
 let mapleader=" "
 nnoremap <leader>w :w<cr>
-nnoremap <leader><space> :noh<CR>
+nnoremap <silent> <leader><space> :noh<CR>
 nnoremap <leader>s :mksession!<CR>
 " space + i for ith tab
 noremap <leader>1 1gt
@@ -150,12 +165,12 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-nnoremap <leader>. :CtrlPTag<cr>
-" auto open in new tab
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
+  \ 'AcceptSelection("e")': ['<cr>'],
+  \ 'AcceptSelection("t")': ['<c-m>'],
+  \ }
+nnoremap <c-o> :CtrlPBuffer<cr>
+nnoremap <c-b> :b#<cr>
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
