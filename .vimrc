@@ -4,6 +4,7 @@ execute pathogen#infect()
 let g:rehash256 = 1
 colorscheme molokai
 syntax enable
+let g:solarized_termcolors=256
 
 "enable mouse
 set mouse=a
@@ -60,6 +61,7 @@ map qq :q<Enter>
 :command Q q
 :command Wq wq
 :command WQ wq
+nnoremap <bs> <nop>
 " go to top of file
 nnoremap <silent> T :0<CR>
 " go to last touched line
@@ -68,8 +70,6 @@ nnoremap m ``
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
 vnoremap y ygv<esc>
-" allow backspace in normal mode
-nnoremap <bs> i<bs><esc>l
 " replace with r
 nnoremap r *Ncgn
 " copy with ctrl y
@@ -181,3 +181,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore = ['\.pyc$']
+
+" airline
+let g:airline_theme="bubblegum"
