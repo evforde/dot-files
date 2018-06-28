@@ -26,6 +26,7 @@ set showmatch
 set laststatus=2
 set splitright
 set splitbelow
+set backspace=indent,eol,start
 
 " search settings
 set incsearch
@@ -61,7 +62,6 @@ map qq :q<Enter>
 :command Q q
 :command Wq wq
 :command WQ wq
-nnoremap <bs> <nop>
 " go to top of file
 nnoremap <silent> T :0<CR>
 " go to last touched line
@@ -184,3 +184,6 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " airline
 let g:airline_theme="bubblegum"
+
+" indentLine
+" let g:indentLine_concealcursor = 0
