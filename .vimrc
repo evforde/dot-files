@@ -62,6 +62,8 @@ map qq :q<Enter>
 :command Q q
 :command Wq wq
 :command WQ wq
+:command T tabe
+:command Qa qa
 " go to top of file
 nnoremap <silent> T :0<CR>
 " go to last touched line
@@ -173,8 +175,8 @@ nnoremap <c-o> :CtrlPBuffer<cr>
 nnoremap <c-b> :b#<cr>
 
 " nerdtree
-autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map - :NERDTreeFind<enter>
 map = :NERDTreeToggle<enter>
 let NERDTreeMinimalUI = 1
@@ -184,6 +186,9 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " airline
 let g:airline_theme="bubblegum"
-
-" indentLine
-" let g:indentLine_concealcursor = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#tab_nr_type= 2
+autocmd VimEnter * highlight airline_tabfill ctermbg=237
