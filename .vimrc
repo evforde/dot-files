@@ -57,7 +57,7 @@ inoremap <c-w> <esc>lwi
 inoremap <c-b> <esc>lbi
 
 " make things a little easier
-map qq :q<Enter>
+map qq :bd<cr>
 :command W w
 :command Q q
 :command Wq wq
@@ -67,7 +67,7 @@ map qq :q<Enter>
 " go to top of file
 nnoremap <silent> T :0<CR>
 " go to last touched line
-nnoremap m ``
+" nnoremap mm ``
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
@@ -188,6 +188,7 @@ let NERDTreeIgnore = ['\.pyc$']
 let g:airline_theme="bubblegum"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#tab_nr_type= 2
