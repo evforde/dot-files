@@ -62,10 +62,9 @@ map qq :bd<cr>
 :command Q q
 :command Wq wq
 :command WQ wq
-:command T tabe
 :command Qa qa
 " go to top of file
-nnoremap <silent> T :0<CR>
+nnoremap <silent> T ma:0<CR>
 " go to last touched line
 " nnoremap mm ``
 " open tags in new tab
@@ -160,7 +159,7 @@ fun! GitCommand(command)
 endfun
 map <leader>d :call GitCommand("diff") <CR>
 map <leader>l :call GitCommand("lol") <CR>
-map <leader>b :call GitCommand("blame") <CR>
+map <leader>b :call GitCommand("blame -C -C") <CR>
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -177,8 +176,18 @@ nnoremap <c-b> :b#<cr>
 " nerdtree
 " autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map - :NERDTreeFind<enter>
-map = :NERDTreeToggle<enter>
+function OpenNERDTreeTabHere()
+ tabe %
+ NERDTreeFind %
+endfunction
+function OpenNERDTreeSplitHere()
+ vs %
+ NERDTreeFind %
+endfunction
+:command T call OpenNERDTreeTabHere()
+:command S call OpenNERDTreeSplitHere()
+map - :NERDTreeFind<cr>
+map = :NERDTreeToggle<cr>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
