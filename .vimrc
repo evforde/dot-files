@@ -79,6 +79,13 @@ nnoremap r *Ncgn
 "   exec "!" . a:command .
 " endfun
 " vnoremap <c-y> :call Command("echo .tmp | pbcopy; rm .tmp")
+" paste in selection without deleting yanked text
+vnoremap p <esc>pgv"_d
+" delete to end and front of line
+nnoremap cI c^
+nnoremap cA c$
+nnoremap dI d^
+nnoremap dA d$
 
 " faster vertical moving
 nnoremap J 5j
