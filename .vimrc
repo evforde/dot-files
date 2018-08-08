@@ -71,6 +71,7 @@ nnoremap <silent> T ma:0<CR>
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
 vnoremap y ygv<esc>
+vmap Y "*y<esc>
 " replace with r
 nnoremap r *Ncgn
 " copy with ctrl y
@@ -86,6 +87,7 @@ nnoremap cI c^
 nnoremap cA c$
 nnoremap dI d^
 nnoremap dA d$
+nnoremap / ma/
 
 " faster vertical moving
 nnoremap J 5j
