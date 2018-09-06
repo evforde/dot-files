@@ -63,10 +63,9 @@ map qq :bd<cr>
 :command Wq wq
 :command WQ wq
 :command Qa qa
-" go to top of file
+" leave marks when going top or bottom
 nnoremap <silent> T ma:0<CR>
-" go to last touched line
-" nnoremap mm ``
+nnoremap <silent> G maG<CR>
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection

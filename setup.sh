@@ -18,7 +18,6 @@ brew install ctags
 
 git config --global alias.lol "log --graph --oneline --decorate --color --all"
 git config --global user.name "Elliott Forde"
-echo "\nDon't forget to set your GitHub email!"
-echo "Don't forget to set your GitHub email!"
-echo "Don't forget to set your GitHub email!"
 
+echo ""
+echo "Don't forget to set your GitHub email!"
