@@ -81,7 +81,7 @@ nnoremap r *Ncgn
 " endfun
 " vnoremap <c-y> :call Command("echo .tmp | pbcopy; rm .tmp")
 " paste in selection without deleting yanked text
-vnoremap p <esc>pgv"_d
+vnoremap p <esc>`>pgv"_d
 " delete to end and front of line
 nnoremap cI c^
 nnoremap cA c$
