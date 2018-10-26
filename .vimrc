@@ -64,6 +64,7 @@ map qq :bd<cr>
 :command Wq wq
 :command WQ wq
 :command Qa qa
+:command JSON %!python -m json.tool<cr>
 " leave marks when going top or bottom
 nnoremap <silent> T ma:0<CR>
 nnoremap <silent> G maG<CR>
@@ -74,12 +75,6 @@ vnoremap y ygv<esc>
 vmap Y "*y<esc>
 " replace with r
 nnoremap r *Ncgn
-" copy with ctrl y
-" fun! Command(command)
-"   silent! !clear
-"   exec "!" . a:command .
-" endfun
-" vnoremap <c-y> :call Command("echo .tmp | pbcopy; rm .tmp")
 " paste in selection without deleting yanked text
 vnoremap p <esc>`>pgv"_d
 " delete to end and front of line
@@ -159,6 +154,9 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal tabstop=2
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
+    autocmd BufEnter *.js setlocal tabstop=2
+    autocmd BufEnter *.js setlocal shiftwidth=2
+    autocmd BufEnter *.js setlocal softtabstop=2
 augroup END
 
 " git commands on current file
@@ -200,7 +198,7 @@ map = :NERDTreeToggle<cr>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ["\.pyc$", "^__pycache__$"]
 
 " airline
 let g:airline_theme="bubblegum"
