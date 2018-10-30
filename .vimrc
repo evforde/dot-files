@@ -64,14 +64,16 @@ map qq :bd<cr>
 :command Wq wq
 :command WQ wq
 :command Qa qa
-:command JSON %!python -m json.tool<cr>
-" leave marks when going top or bottom
+:command JSON %!python3 -m json.tool<cr>
+" leave marks when going top or bottom or searching
 nnoremap <silent> T ma:0<CR>
 nnoremap <silent> G maG<CR>
+nnoremap / ma/
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
 vnoremap y ygv<esc>
+" copy to clipboard with Y
 vmap Y "*y<esc>
 " replace with r
 nnoremap r *Ncgn
@@ -82,7 +84,6 @@ nnoremap cI c^
 nnoremap cA c$
 nnoremap dI d^
 nnoremap dA d$
-nnoremap / ma/
 
 " faster vertical moving
 nnoremap J 5j
@@ -181,8 +182,6 @@ nnoremap <c-o> :CtrlPBuffer<cr>
 nnoremap <c-b> :b#<cr>
 
 " nerdtree
-" autocmd StdinReadPre * let s:std_in=1 " open NERDTree if no file provided
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 function OpenNERDTreeTabHere()
  tabe %
  NERDTreeFind %
