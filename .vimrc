@@ -34,6 +34,9 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+au InsertEnter * set noignorecase
+au InsertLeave * set ignorecase
+
 
 " arrow keys
 inoremap <Left> <Nop>
