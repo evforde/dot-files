@@ -29,3 +29,5 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+export HISTCONTROL=ignoreboth:erasedups
