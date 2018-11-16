@@ -76,8 +76,10 @@ nnoremap / ma/
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
 vnoremap y ygv<esc>
-" copy to clipboard with Y
+" copy to clipboard with Y in visual mode
 vmap Y "*y<esc>
+" yank from cursor to end of the line with Y in normal mode
+nmap Y v$hy<esc>
 " replace with r
 nnoremap r *Ncgn
 " paste in selection without deleting yanked text
