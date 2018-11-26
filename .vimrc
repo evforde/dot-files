@@ -60,6 +60,13 @@ inoremap <c-l> <Right>
 inoremap <c-w> <esc>lwi
 inoremap <c-b> <esc>lbi
 
+" ctrl-paste to paste in insert
+inoremap <c-p> <esc>pli
+" paste from clipboard register
+nnoremap P "+p
+" paste in selection without deleting yanked text
+vnoremap p <esc>`>pgv"_d
+
 " make things a little easier
 map qq :bd<cr>
 :command W w
@@ -67,11 +74,14 @@ map qq :bd<cr>
 :command Wq wq
 :command WQ wq
 :command Qa qa
+" this doesn't really work
 :command JSON %!python3 -m json.tool<cr>
+
 " leave marks when going top or bottom or searching
-nnoremap <silent> T ma:0<CR>
+nnoremap <silent> T magg<CR>
 nnoremap <silent> G maG<CR>
 nnoremap / ma/
+
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
 " yank leaves cursor at bottom of selection
@@ -82,8 +92,6 @@ vmap Y "*y<esc>
 nmap Y v$hy<esc>
 " replace with r
 nnoremap r *Ncgn
-" paste in selection without deleting yanked text
-vnoremap p <esc>`>pgv"_d
 " delete to end and front of line
 nnoremap cI c^
 nnoremap cA c$
@@ -113,17 +121,6 @@ let mapleader=" "
 nnoremap <leader>w :w<cr>
 nnoremap <silent> <leader><space> :noh<CR>
 nnoremap <leader>s :mksession!<CR>
-" space + i for ith tab
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
 
 " escape is far
 inoremap jk <esc>
@@ -173,6 +170,8 @@ endfun
 map <leader>d :call GitCommand("diff") <CR>
 map <leader>l :call GitCommand("lol") <CR>
 map <leader>b :call GitCommand("blame -C -C") <CR>
+
+" ================ PLUGINS ================
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
