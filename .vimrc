@@ -37,7 +37,6 @@ set smartcase
 au InsertEnter * set noignorecase
 au InsertLeave * set ignorecase
 
-
 " arrow keys
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
@@ -125,6 +124,9 @@ nnoremap <leader>s :mksession!<CR>
 " escape is far
 inoremap jk <esc>
 inoremap jj <esc>
+
+" don't use enter in normal mode
+nmap <cr> <nop>
 
 " ctrl ui for tabs, hjkl for windows
 noremap <c-u> gT
