@@ -23,6 +23,8 @@ alias gd="git diff"
 alias gdm="git diff master"
 alias gpl="git pull origin master"
 
+alias tmux="TERM=screen-256color-bce tmux"
+
 export PS1="\[\033[32m\]\D{%H:%M:%S} \[\033[35m\]\h:\[\033[33;1m\]\W\[\033[m\] \[\033[36m\]\u\[\033[m\]\n\[\033[31m\]$\[\033[m\] "
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
