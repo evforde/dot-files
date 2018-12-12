@@ -11,6 +11,7 @@ git clone https://github.com/altercation/vim-colors-solarized.git .vim/bundle/vi
 git clone https://github.com/Yggdroot/indentLine.git .vim/bundle/indentLine
 git clone https://github.com/tpope/vim-obsession.git .vim/bundle/vim-obsession
 git clone https://github.com/ervandew/supertab.git .vim/bundle/supertab
+git clone https://github.com/benmills/vimux.git .vim/bundle/vimux
 
 mkdir -p .vim/autoload .vim/bundle && \
 curl -LSso .vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

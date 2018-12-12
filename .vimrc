@@ -214,3 +214,6 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#tab_nr_type= 2
 autocmd VimEnter * highlight airline_tabfill ctermbg=237
+
+" vimux
+:command Vp VimuxPromptCommand
