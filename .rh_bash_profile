@@ -1,0 +1,2 @@
+alias adm="arc diff master"
+alias alomr="arc land --onto master --revision"
