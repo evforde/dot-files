@@ -77,9 +77,9 @@ map qq :bd<cr>
 :command JSON %!python3 -m json.tool<cr>
 
 " leave marks when going top or bottom or searching
-nnoremap <silent> T magg<CR>
-nnoremap <silent> G maG<CR>
-nnoremap / ma/
+nnoremap <silent> T magg
+nnoremap <silent> G maG
+nnoremap / ms/
 
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T

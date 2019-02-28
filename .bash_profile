@@ -24,6 +24,7 @@ alias gl="git lol"
 alias gd="git diff"
 alias gdm="git diff master"
 alias gpl="git pull origin master"
+alias gsub="git submodule update"
 
 alias tmux="TERM=screen-256color-bce tmux"
 
