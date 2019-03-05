@@ -1,2 +1,2 @@
-alias adm="arc diff master"
+alias adm="arc diff origin/master"
 alias alomr="arc land --onto master --revision"

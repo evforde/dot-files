@@ -23,7 +23,7 @@ alias gstp="git stash pop"
 alias gl="git lol"
 alias gd="git diff"
 alias gdm="git diff master"
-alias gpl="git pull origin master"
+alias gpl="git pull origin master --rebase"
 alias gsub="git submodule update"
 
 alias tmux="TERM=screen-256color-bce tmux"
