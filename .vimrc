@@ -180,10 +180,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+" open file in new tab upon <cr>
 let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': ['<cr>'],
-  \ 'AcceptSelection("t")': ['<c-m>'],
-  \ }
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
 nnoremap <c-o> :CtrlPBuffer<cr>
 nnoremap <c-b> :b#<cr>
 
