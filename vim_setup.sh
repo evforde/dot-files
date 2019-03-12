@@ -13,8 +13,9 @@ git clone https://github.com/tpope/vim-obsession.git ~/.vim/bundle/vim-obsession
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/benmills/vimux.git ~/.vim/bundle/vimux
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-git clone git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
+git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+git clone https://github.com/tpope/vim-rhubarb.git ~/.vim/bundle/vim-rhubarb
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

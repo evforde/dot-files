@@ -165,13 +165,10 @@ augroup configgroup
 augroup END
 
 " git commands on current file
-fun! GitCommand(command)
-  silent! !clear
-  exec "!git " . a:command . " %"
-endfun
-map <leader>d :call GitCommand("diff") <CR>
-map <leader>l :call GitCommand("lol") <CR>
-map <leader>b :call GitCommand("blame -C -C") <CR>
+map <leader>d :Gdiff<cr>
+map <leader>s :Gstatus<cr>
+map <leader>o :Gbrowse<cr>
+map <leader>b :Gblame<cr>
 
 " ================ PLUGINS ================
 
