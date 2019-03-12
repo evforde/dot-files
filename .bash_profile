@@ -1,6 +1,7 @@
 alias ls="ls -G"
 alias ll="ls -lh"
 alias grep="grep --color=auto --exclude=\*.{swp} -I"
+alias ggrep="grep --color=auto -I"
 alias grepnt='grep --exclude="*/tests/*" --exclude="*.git/*" --exclude="*cover/*" --exclude="*env/*"'
 
 alias shell="./manage.py shell"
