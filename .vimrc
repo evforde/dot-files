@@ -165,10 +165,12 @@ augroup configgroup
 augroup END
 
 " git commands on current file
-map <leader>d :Gdiff<cr>
+map <leader>d :GitGutterLineHighlightsToggle<cr>
 map <leader>s :Gstatus<cr>
 map <leader>o :Gbrowse<cr>
 map <leader>b :Gblame<cr>
+map <leader>n ]c
+map <leader>N [c
 
 " ================ PLUGINS ================
 
