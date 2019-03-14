@@ -1,4 +1,5 @@
 execute pathogen#infect()
+execute pathogen#helptags()
 
 "color scheme
 let g:rehash256 = 1
@@ -20,7 +21,7 @@ set breakindent
 set number relativenumber
 set showcmd
 set cursorline
-filetype indent on
+filetype plugin indent on
 set wildmenu
 set lazyredraw
 set showmatch
@@ -113,7 +114,7 @@ nnoremap <leader>q :bd<cr>
 set foldenable
 set foldlevelstart=10
 nnoremap , za
-set foldmethod=syntax
+set foldmethod=indent
 
 " leader stuff
 let mapleader=" "
@@ -217,3 +218,5 @@ autocmd VimEnter * highlight airline_tabfill ctermbg=237
 
 " vimux
 :command Vp VimuxPromptCommand
+
+let g:pymode_python = 'python3'
