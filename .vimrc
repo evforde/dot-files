@@ -165,6 +165,8 @@ augroup configgroup
     autocmd BufEnter *.js setlocal softtabstop=2
 augroup END
 
+" ================ PLUGINS ================
+
 " git commands on current file
 map <leader>d :GitGutterLineHighlightsToggle<cr>
 map <leader>s :Gstatus<cr>
@@ -172,8 +174,6 @@ map <leader>o :Gbrowse<cr>
 map <leader>b :Gblame<cr>
 map <leader>n ]c
 map <leader>N [c
-
-" ================ PLUGINS ================
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -219,4 +219,9 @@ autocmd VimEnter * highlight airline_tabfill ctermbg=237
 " vimux
 :command Vp VimuxPromptCommand
 
+" obsession
+:Obsess
+
+" pymode
 let g:pymode_python = 'python3'
+let g:pymode_doc = 0
