@@ -21,10 +21,11 @@ git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
 
-# coding display
+# coding
 git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/saltstack/salt-vim.git ~/.vim/bundle/salt-vim
+git clone --recursive https://github.com/python-mode/python-mode.git ~/.vim/bundle/python-mode
 
 # sessions
 git clone https://github.com/tpope/vim-obsession.git ~/.vim/bundle/vim-obsession
