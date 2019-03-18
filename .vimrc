@@ -219,9 +219,20 @@ autocmd VimEnter * highlight airline_tabfill ctermbg=237
 " vimux
 :command Vp VimuxPromptCommand
 
-" obsession
-:Obsess
-
 " pymode
 let g:pymode_python = 'python3'
 let g:pymode_doc = 0
+let g:pymode_rope = 1
+let g:pymode_run = 1
+let g:pymode_rope_completion = 0
+let g:pymode_rope_goto_definition_bind = '<C-t>'
+let g:pymode_rope_regenerate_on_write = 0
+let g:pymode_rope_show_doc_bind = ''
+let g:pymode_breakpoint_bind = '<leader>r'
+
+let g:pymode_lint_todo_symbol = 'W'
+let g:pymode_lint_comment_symbol = 'C'
+let g:pymode_lint_visual_symbol = 'R'
+let g:pymode_lint_error_symbol = 'E'
+let g:pymode_lint_info_symbol = 'I'
+let g:pymode_lint_pyflakes_symbol = 'F'
