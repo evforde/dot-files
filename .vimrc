@@ -119,7 +119,7 @@ set foldmethod=indent
 " leader stuff
 let mapleader=" "
 nnoremap <leader>w :w<cr>
-nnoremap <silent> <leader><space> :noh<CR>
+nnoremap <silent> <leader><space> :noh<cr>
 nnoremap <leader>s :mksession!<CR>
 
 " escape is far
@@ -220,7 +220,7 @@ autocmd VimEnter * highlight airline_tabfill ctermbg=237
 :command Vp VimuxPromptCommand
 
 " pymode
-let g:pymode_python = 'python3'
+let g:pymode_python = 'python'
 let g:pymode_doc = 0
 let g:pymode_rope = 1
 let g:pymode_run = 1
@@ -238,9 +238,9 @@ let g:pymode_lint_info_symbol = 'I'
 let g:pymode_lint_pyflakes_symbol = 'F'
 
 " " autosave delay, cursorhold trigger, default: 4000ms
-setl updatetime=300
+setl updatetime=400
 " highlight the word under cursor (CursorMoved is inperformant)
-highlight WordUnderCursor cterm=underline gui=underline
+highlight WordUnderCursor ctermbg=237
 autocmd CursorHold * call HighlightCursorWord()
 function! HighlightCursorWord()
     " if hlsearch is active, don't overwrite it!
@@ -250,4 +250,4 @@ function! HighlightCursorWord()
         exe printf('match WordUnderCursor /\V\<%s\>/', escape(cword, '/\'))
     endif
 endfunction
-
+nnoremap <c-d> *
