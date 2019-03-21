@@ -240,7 +240,7 @@ let g:pymode_lint_pyflakes_symbol = 'F'
 " " autosave delay, cursorhold trigger, default: 4000ms
 setl updatetime=400
 " highlight the word under cursor (CursorMoved is inperformant)
-highlight WordUnderCursor ctermbg=237
+highlight WordUnderCursor ctermbg=238
 autocmd CursorHold * call HighlightCursorWord()
 function! HighlightCursorWord()
     " if hlsearch is active, don't overwrite it!
