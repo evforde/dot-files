@@ -1,3 +1,14 @@
+# Start vim with obsession when no file provided
+function vim() {
+  if test $# -gt 0; then
+    env vim "$@"
+  elif test -f Session.vim; then
+    env vim -S
+  else
+    env vim -c Obsession
+  fi
+}
+
 alias ls="ls -G"
 alias ll="ls -lh"
 alias grep='grep --color=auto --exclude=\*.{swp} -I --exclude="*.git/*" --exclude="*cover/*" --exclude="*env/*" --exclude="*.tags"'
@@ -16,6 +27,7 @@ alias gca="git commit --amend"
 alias gco="git checkout"
 alias gr="git rebase -i"
 alias grc="git rebase --continue"
+alias grm="git rebase -i origin/master"
 alias gp="git push origin master"
 alias gpo="git push origin"
 alias gs="git status"
