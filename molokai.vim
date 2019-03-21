@@ -219,7 +219,7 @@ if &t_Co > 255
    hi Underlined      ctermfg=244               cterm=underline
 
    hi VertSplit       ctermfg=232 ctermbg=232   cterm=bold
-   hi VisualNOS                   ctermbg=238
+   hi VisualNOS                   ctermbg=237
    hi Visual                      ctermbg=235
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
@@ -262,7 +262,7 @@ if &t_Co > 255
        hi Statement       ctermfg=197               cterm=bold
        hi Tag             ctermfg=197
        hi Title           ctermfg=203
-       hi Visual                      ctermbg=238
+       hi Visual                      ctermbg=237
 
        hi Comment         ctermfg=244
        hi LineNr          ctermfg=239 ctermbg=235
