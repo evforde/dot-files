@@ -1,2 +1,23 @@
 alias adm="arc diff origin/master"
 alias alomr="arc land --onto master --revision"
+
+################################
+# Kubernetes
+################################
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+alias kctl="kubectl"
+kubeoff
+source ~/hood/deploy-tools/kubernetes/kubectl_helpers.sh
+
+
+################################
+# Neo
+################################
+release () {
+  cd PATH_TO_NEO && \
+  workon neo && \
+  git pull -q origin master && \
+  pip install -qe . && \
+  neo $@
+}
