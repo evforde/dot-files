@@ -7,6 +7,7 @@ cp ./molokai.vim ~/.vim/colors/molokai.vim
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim
+# Requires homebrew vim to be installed!
 ./configure --with-features=huge --disable-pythoninterp --enable-python3interp vi_cv_path_python3=/usr/local/bin/python3.6 && make && sudo make install
 
 
