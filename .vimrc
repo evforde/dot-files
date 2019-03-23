@@ -220,7 +220,7 @@ autocmd VimEnter * highlight airline_tabfill ctermbg=237
 :command Vp VimuxPromptCommand
 
 " pymode
-let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 let g:pymode_doc = 0
 let g:pymode_rope = 1
 let g:pymode_run = 1
