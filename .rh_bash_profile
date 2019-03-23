@@ -15,9 +15,15 @@ source ~/hood/deploy-tools/kubernetes/kubectl_helpers.sh
 # Neo
 ################################
 release () {
-  cd PATH_TO_NEO && \
+  cd ~/hood/neo && \
   workon neo && \
   git pull -q origin master && \
   pip install -qe . && \
   neo $@
 }
+
+
+################################
+# Pyenv
+################################
+eval "$(pyenv init -)"
