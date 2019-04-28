@@ -18,6 +18,7 @@ alias grepnt='grep --exclude="*/tests/*"'
 alias shell="./manage.py shell"
 
 alias mctags="ctags -R -f ./.tags ."
+alias rmpyc="find . -name "*.pyc" -exec rm {} \;"
 
 alias g="git"
 alias ga="git add"
@@ -35,7 +36,8 @@ alias gst="git stash"
 alias gstp="git stash pop"
 alias gl="git lol"
 alias gd="git diff"
-alias gdm="git diff master"
+alias gds="git diff --name-status"
+alias gdm="git diff origin/master"
 alias gpl="git pull origin master --rebase"
 alias gsub="git submodule update"
 
