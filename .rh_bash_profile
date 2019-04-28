@@ -1,14 +1,14 @@
 alias adm="arc diff origin/master"
 alias alomr="arc land --onto master --revision"
+alias ef_uuid="echo '6cf01328-32e0-4715-a7e6-16a7408aa8ff' | tee >(pbcopy)"
 
 ################################
 # Kubernetes
 ################################
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
-alias kctl="kubectl"
 kubeoff
-source ~/hood/deploy-tools/kubernetes/kubectl_helpers.sh
+source ~/hood/rdt/kubernetes/kubectl_helpers.sh
 
 
 ################################
@@ -27,3 +27,5 @@ release () {
 # Pyenv
 ################################
 eval "$(pyenv init -)"
+
+export LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CFLAGS="-I$(brew --prefix openssl@1.1)/include"
