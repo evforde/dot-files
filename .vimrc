@@ -38,6 +38,13 @@ set smartcase
 au InsertEnter * set noignorecase
 au InsertLeave * set ignorecase
 
+" search highlighted text in visual mode
+vnoremap * y/<c-r>"<cr>
+" replace with r
+nnoremap r *Ncgn
+" replace highlighted text
+vmap r *Ncgn
+
 " arrow keys
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
@@ -90,8 +97,6 @@ vnoremap y ygv<esc>
 vmap Y "*y<esc>
 " yank from cursor to end of the line with Y in normal mode
 nmap Y v$hy<esc>
-" replace with r
-nnoremap r *Ncgn
 " delete to end and front of line
 nnoremap cI c^
 nnoremap cA c$
