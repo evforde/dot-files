@@ -95,8 +95,8 @@ nnoremap <c-\> <c-w><c-]><c-w>T
 vnoremap y ygv<esc>
 " copy to clipboard with Y in visual mode
 vmap Y "*y<esc>
-" yank from cursor to end of the line with Y in normal mode
-nmap Y v$hy<esc>
+" select current word and copy to clipboard with Y in normal mode
+nmap Y viwY
 " delete to end and front of line
 nnoremap cI c^
 nnoremap cA c$
@@ -256,3 +256,19 @@ function! HighlightCursorWord()
     endif
 endfunction
 nnoremap <c-d> *
+
+" Search and Ack
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
+nnoremap <Leader>g :Ack!<Space>
+
+" nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+" nnoremap \ :Ag<SPACE>

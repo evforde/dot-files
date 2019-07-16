@@ -3,6 +3,7 @@
 
 brew install vim
 brew install ctags
+brew install ag
 
 git config --global alias.lol "log --graph --oneline --decorate --color --all"
 git config --global user.name "Elliott Forde"

@@ -14,6 +14,7 @@ alias ll="ls -lh"
 alias grep='grep --color=auto --exclude=\*.{swp} -I --exclude="*.git/*" --exclude="*cover/*" --exclude="*env/*" --exclude="*.tags"'
 alias ggrep="git grep --color=auto -I"
 alias grepnt='grep --exclude="*/tests/*"'
+alias agnt='ag --ignore=*tests*'
 
 alias shell="./manage.py shell"
 
@@ -27,6 +28,7 @@ alias gc="git commit -m"
 alias gca="git commit --amend"
 alias gco="git checkout"
 alias gr="git rebase -i"
+alias gra="git rebase --abort"
 alias grc="git rebase --continue"
 alias grm="git rebase -i origin/master"
 alias gp="git push origin master"

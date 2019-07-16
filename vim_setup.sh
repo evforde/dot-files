@@ -41,5 +41,8 @@ git clone https://github.com/tpope/vim-rhubarb.git ~/.vim/bundle/vim-rhubarb
 # tmux stuff
 git clone https://github.com/benmills/vimux.git ~/.vim/bundle/vimux
 
+# searching
+git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
+
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
