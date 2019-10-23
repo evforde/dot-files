@@ -168,6 +168,10 @@ augroup configgroup
     autocmd BufEnter *.js setlocal tabstop=2
     autocmd BufEnter *.js setlocal shiftwidth=2
     autocmd BufEnter *.js setlocal softtabstop=2
+    autocmd BufEnter *.tsx setlocal tabstop=2
+    autocmd BufEnter *.tsx setlocal shiftwidth=2
+    autocmd BufEnter *.tsx setlocal softtabstop=2
+    autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascript.jsx
 augroup END
 
 " ================ PLUGINS ================
@@ -243,7 +247,7 @@ let g:pymode_lint_info_symbol = 'I'
 let g:pymode_lint_pyflakes_symbol = 'F'
 
 " " autosave delay, cursorhold trigger, default: 4000ms
-setl updatetime=400
+setl updatetime=200
 " highlight the word under cursor (CursorMoved is inperformant)
 highlight WordUnderCursor ctermbg=238
 autocmd CursorHold * call HighlightCursorWord()
@@ -272,3 +276,4 @@ nnoremap <Leader>g :Ack!<Space>
 " bind \ (backward slash) to grep shortcut
 " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 " nnoremap \ :Ag<SPACE>
+"
