@@ -10,7 +10,7 @@ cd vim
 # Requires homebrew vim to be installed!
 # ./configure --with-features=huge --disable-pythoninterp --enable-python3interp vi_cv_path_python3=/usr/local/bin/python3.6 && make && sudo make install
 # I think this is the proper way to compile vim from source
-./configure --with-features=huge --disable-pythoninterp --enable-python3interp vi_cv_path_python3=/usr/local/bin/python3.6 --with-python3-command=python3 | make && sudo make install
+./configure --with-features=huge --disable-pythoninterp --enable-python3interp vi_cv_path_python3=/usr/local/bin/python3.6 --with-python3-command=python3 && make && sudo make install
 
 
 # TODO navigate these to vimrc
