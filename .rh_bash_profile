@@ -33,3 +33,5 @@ release () {
 eval "$(pyenv init -)"
 
 export LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CFLAGS="-I$(brew --prefix openssl@1.1)/include"
+
+export IT_DEV_NAMESPACE=elliott
