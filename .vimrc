@@ -222,7 +222,12 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#tab_nr_type= 2
+let g:airline#extensions#tabline#tab_nr_type = 2
+"let g:airline_section_a = ''  " hide mode
+let g:airline_section_b = ''  " hide version control
+let g:airline_section_x = ''  " hide filetype
+" replace file encoding with tag
+let g:airline_section_y = '%{taghelper#curtag()}'
 autocmd VimEnter * highlight airline_tabfill ctermbg=237
 
 " vimux
