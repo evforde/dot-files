@@ -248,6 +248,7 @@ let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_completion_bind = '<C-n>'
 let g:pymode_rope_regenerate_on_write = 0
+let g:pymode_breakpoint_bind = ''
 let g:pymode_rope_show_doc_bind = ''
 
 set completeopt=longest,menuone
