@@ -13,7 +13,7 @@ cd vim
 ./configure --with-features=huge --disable-pythoninterp --enable-python3interp vi_cv_path_python3=/usr/local/bin/python3.6 --with-python3-command=python3 && make && sudo make install
 
 
-# TODO navigate these to vimrc
+# TODO migrate these to vimrc
 # file navigation 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 git clone https://github.com/tpope/vim-vinegar.git ~/.vim/bundle/vim-vinegar
@@ -27,7 +27,6 @@ git clone https://github.com:evforde/taghelper.vim.git ~/.vim/bundle/taghelper
 
 # coding
 git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
-git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/saltstack/salt-vim.git ~/.vim/bundle/salt-vim
 git clone --recursive https://github.com/python-mode/python-mode.git ~/.vim/bundle/python-mode
 
