@@ -251,6 +251,9 @@ let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_breakpoint_bind = ''
 let g:pymode_rope_show_doc_bind = ''
 
+" ignore too complex lint error
+let g:pymode_lint_ignore = "C901"
+
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
