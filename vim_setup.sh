@@ -27,6 +27,7 @@ git clone https://github.com/evforde/taghelper.vim.git ~/.vim/bundle/taghelper
 
 # coding
 git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
+git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/saltstack/salt-vim.git ~/.vim/bundle/salt-vim
 git clone --recursive https://github.com/python-mode/python-mode.git ~/.vim/bundle/python-mode
 

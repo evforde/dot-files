@@ -244,17 +244,14 @@ let g:pymode_doc = 0
 let g:pymode_rope = 1
 let g:pymode_run = 1
 let g:pymode_rope_goto_definition_bind = '<C-t>'
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_completion_bind = '<C-n>'
+let g:pymode_rope_completion = 0
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_breakpoint_bind = ''
 let g:pymode_rope_show_doc_bind = ''
 
 " ignore too complex lint error
-let g:pymode_lint_ignore = "C901"
+let g:pymode_lint_ignore = ["C901"]
 
-set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
