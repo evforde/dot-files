@@ -287,7 +287,8 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 cnoreabbrev Ack Ack!
-nnoremap <Leader>g :Ack!<Space>
+nnoremap <Leader>g :Ack!<CR>
+nnoremap <Leader>h :Ack!<Space>
 
 " nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
