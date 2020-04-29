@@ -23,7 +23,7 @@ git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
-git clone https://github.com:evforde/taghelper.vim.git ~/.vim/bundle/taghelper
+git clone https://github.com/evforde/taghelper.vim.git ~/.vim/bundle/taghelper
 
 # coding
 git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
