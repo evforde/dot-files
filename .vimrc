@@ -16,6 +16,11 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set breakindent
+set breakindentopt=min:40
+set breakat=80
+set wrap
+let &showbreak = '↳ '
+set cpo+=n
 
 " UI configuration
 set number relativenumber
@@ -188,7 +193,7 @@ map <leader>N [c
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_cmd='CtrlP :pwd'
 " open file in new tab upon <cr>
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
