@@ -39,3 +39,11 @@ function load_ldflags {
 }
 
 export IT_DEV_NAMESPACE=elliott
+
+release () {
+  cd /Users/elliott.forde/hood/neo && \
+  workon neo && \
+  git pull -q origin master && \
+  pip install -qe . && \
+  neo $@
+}
