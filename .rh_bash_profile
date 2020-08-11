@@ -1,5 +1,6 @@
 alias adm="arc diff origin/master"
-alias alomr="arc land --onto master --revision"
+# alias alomr="arc land --onto master --revision"
+alias al="arc land"
 alias manage="./manage.py"
 alias ef_uuid="echo '6cf01328-32e0-4715-a7e6-16a7408aa8ff' | tee >(pbcopy)"
 alias kef="k --namespace elliott --context development"
