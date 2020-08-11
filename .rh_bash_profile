@@ -4,6 +4,10 @@ alias al="arc land"
 alias manage="./manage.py"
 alias ef_uuid="echo '6cf01328-32e0-4715-a7e6-16a7408aa8ff' | tee >(pbcopy)"
 alias kef="k --namespace elliott --context development"
+alias kcu="k config use-context"
+function kcsn() {
+    kubectl config set-context $(kubectl config current-context) --namespace=$1
+}
 
 ################################
 # Kubernetes
