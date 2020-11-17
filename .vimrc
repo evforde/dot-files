@@ -262,6 +262,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " let g:pymode_lint_checkers = ['black']
+let g:pymode_lint = 0
 let g:pymode_lint_todo_symbol = 'W'
 let g:pymode_lint_comment_symbol = 'C'
 let g:pymode_lint_visual_symbol = 'R'
