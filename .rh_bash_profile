@@ -5,14 +5,20 @@ alias manage="./manage.py"
 alias ef_uuid="echo '6cf01328-32e0-4715-a7e6-16a7408aa8ff' | tee >(pbcopy)"
 alias kef="k --namespace elliott --context development"
 alias kcu="k config use-context"
+alias prod0="kubeon; kcu rh-production.k8s.local"
+alias prod1="kubeon; kcu rh-production-1.k8s.local"
+alias us2="kcsn brokeback-us-2"
+alias us3="kcsn brokeback-us-3"
+alias us4="kcsn brokeback-us-3"
+alias us5="kcsn brokeback-us-3"
 function kcsn() {
-    kubectl config set-context $(kubectl config current-context) --namespace=$1
+    kubeon; kubectl config set-context $(kubectl config current-context) --namespace=$1
 }
 
 ################################
 # Kubernetes
 ################################
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
 kubeoff
 source ~/hood/rdt/kubernetes/kubectl_helpers.sh
@@ -20,6 +26,7 @@ source ~/hood/rdt/kubernetes/kubectl_helpers.sh
 alias k="kubectl"
 alias kd="k describe"
 alias kg="k get"
+alias kgc="k get component"
 
 
 ################################
