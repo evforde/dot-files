@@ -9,8 +9,8 @@ alias prod0="kubeon; kcu rh-production.k8s.local"
 alias prod1="kubeon; kcu rh-production-1.k8s.local"
 alias us2="kcsn brokeback-us-2"
 alias us3="kcsn brokeback-us-3"
-alias us4="kcsn brokeback-us-3"
-alias us5="kcsn brokeback-us-3"
+alias us4="kcsn brokeback-us-4"
+alias us5="kcsn brokeback-us-5"
 function kcsn() {
     kubeon; kubectl config set-context $(kubectl config current-context) --namespace=$1
 }
