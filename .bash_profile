@@ -13,8 +13,8 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias grep='grep --color=auto --exclude=\*.{swp} -I --exclude="*.git/*" --exclude="*cover/*" --exclude="*env/*" --exclude="*.tags"'
 alias ggrep="git grep --color=auto -I"
-alias grepnt='grep --exclude="*/tests/*"'
-alias agnt='ag --ignore=*tests* --ignore=*migrations*'
+alias grepnt='grep --exclude="*/test/*"'
+alias agnt='ag --ignore=*test* --ignore=*migrations*'
 
 alias shell="./manage.py shell"
 
