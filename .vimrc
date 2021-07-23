@@ -167,6 +167,7 @@ augroup configgroup
     autocmd FileType python setlocal foldmethod=indent
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter *.go setlocal noexpandtab
     autocmd BufEnter *.sh setlocal tabstop=2
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
@@ -302,3 +303,7 @@ nnoremap <Leader>h :Ack!<Space>
 " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 " nnoremap \ :Ag<SPACE>
 "
+
+" golang
+map <leader>c :GoBuild<cr>
+let g:go_doc_keywordprg_enabled = 0
