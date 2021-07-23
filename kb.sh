@@ -4,13 +4,20 @@ then
     echo "Usage: k.sh (0|1|dev) N ..."
 fi
 PROD=$1
+shift
+SHARD=$1
+shift
+
 if [ $PROD -eq 0 ]
 then
   PROD=
 else
   PROD=-$PROD
 fi
-shift
-BB=$1
-shift
-kubectl --context rh-production${PROD}.k8s.local --namespace brokeback-us-${BB} "$@"
+
+if [ $SHARD != "meiosis" ]
+then
+  SHARD=brokeback-us-$SHARD
+fi
+
+kubectl --context rh-production${PROD}.k8s.local --namespace ${SHARD} "$@"
