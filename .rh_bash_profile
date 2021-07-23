@@ -21,6 +21,10 @@ alias us8="kcsn brokeback-us-8"
 alias us9="kcsn brokeback-us-9"
 alias us10="kcsn brokeback-us-10"
 alias us11="kcsn brokeback-us-11"
+alias us12="kcsn brokeback-us-12"
+alias us13="kcsn brokeback-us-13"
+alias us14="kcsn brokeback-us-14"
+alias us15="kcsn brokeback-us-15"
 function kcsn() {
     kubeon; kubectl config set-context $(kubectl config current-context) --namespace=$1
 }
@@ -68,4 +72,10 @@ release () {
   git pull -q origin master && \
   pip install -qe . && \
   neo $@
+}
+
+ssh_fix() {
+    sudo ifconfig en0 down
+    sudo route flush
+    sudo ifconfig en0 up
 }
