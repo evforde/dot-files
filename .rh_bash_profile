@@ -39,6 +39,7 @@ source ~/hood/rdt/kubernetes/kubectl_helpers.sh
 
 alias k="kubectl"
 alias kd="k describe"
+alias kdp="k delete pod"
 alias kg="k get"
 alias kgc="k get component"
 

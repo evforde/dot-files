@@ -167,7 +167,7 @@ augroup configgroup
     autocmd FileType python setlocal foldmethod=indent
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
-    autocmd BufEnter *.go setlocal noexpandtab
+    autocmd BufEnter *.go setlocal noexpandtab colorcolumn=120
     autocmd BufEnter *.sh setlocal tabstop=2
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
