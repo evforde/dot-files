@@ -1,5 +1,7 @@
 alias adm="arc diff origin/master"
 alias adh="arc diff HEAD~"
+alias adhm="arc diff HEAD~ -m update"
+alias adhmnl="arc diff HEAD~ -m update --nolint"
 alias adhnl="arc diff HEAD~ --nolint"
 # alias alomr="arc land --onto master --revision"
 alias al="arc land"

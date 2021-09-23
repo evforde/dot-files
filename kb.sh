@@ -15,7 +15,7 @@ else
   PROD=-$PROD
 fi
 
-if [ $SHARD != "meiosis" ]
+if [[ $SHARD != "meiosis" && $SHARD != "helios" ]]
 then
   SHARD=brokeback-us-$SHARD
 fi
