@@ -34,6 +34,7 @@ alias gr="git rebase -i"
 alias grh="git rebase -i HEAD"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
+alias gre="git rebase --edit-todo"
 alias grm="git rebase -i origin/master"
 alias gp="git push origin master"
 alias gpo="git push origin"
@@ -64,3 +65,7 @@ export HISTCONTROL=ignoreboth:erasedups
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin/
+
+if [ $ITERM_SESSION_ID ]; then
+  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; '
+fi

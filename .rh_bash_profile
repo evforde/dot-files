@@ -31,14 +31,11 @@ function kcsn() {
     kubeon; kubectl config set-context $(kubectl config current-context) --namespace=$1
 }
 
+alias grs="gr origin/stable"
+
 ################################
 # Kubernetes
 ################################
-# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
-kubeoff
-source ~/hood/rdt/kubernetes/kubectl_helpers.sh
-
 alias k="kubectl"
 alias kd="k describe"
 alias kdp="k delete pod"
