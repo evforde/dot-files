@@ -33,6 +33,8 @@ function kcsn() {
 
 alias grs="gr origin/stable"
 
+alias ubf="bazel run //:update_build_files"
+
 ################################
 # Kubernetes
 ################################
