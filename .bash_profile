@@ -69,3 +69,8 @@ export PATH=$PATH:~/go/bin/
 if [ $ITERM_SESSION_ID ]; then
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; '
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+export PGDATA=/opt/homebrew/var/postgres start
