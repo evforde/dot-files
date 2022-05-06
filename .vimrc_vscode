@@ -1,0 +1,86 @@
+" search highlighted text in visual mode
+vnoremap * y/<c-r>"<cr>
+" replace with r
+nnoremap r *Ncgn
+" replace highlighted text
+vmap r *Ncgn
+" arrow keys
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+vmap <Left> <gv
+vmap <Right> >gv
+nnoremap < V<
+nnoremap > V>
+
+" naviagtion in insert
+inoremap <c-h> <Left>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-l> <Right>
+inoremap <c-w> <esc>lwi
+inoremap <c-b> <esc>lbi
+
+" ctrl-paste to paste in insert
+inoremap <c-p> <esc>pli
+" paste from clipboard register
+nnoremap P "+p
+" paste in selection without deleting yanked text
+vnoremap p <esc>`>pgv"_d
+
+" make things a little easier
+map qq :bd<cr>
+map W w
+:command Q q
+:command Wq wq
+:command WQ wq
+:command Qa qa
+
+" leave marks when going top or bottom or searching
+nnoremap <silent> T magg
+nnoremap <silent> G maG
+nnoremap / ms/
+nmap ]] `a  " go mark that was left before navigation
+
+" open tags in new tab
+nnoremap <c-\> <c-w><c-]><c-w>T
+" yank leaves cursor at bottom of selection
+vnoremap y ygv<esc>
+" copy to clipboard with Y in visual mode
+vmap Y "*y<esc>
+" select current word and copy to clipboard with Y in normal mode
+nmap Y viwY
+" delete to end and front of line
+nnoremap cI c^
+nnoremap cA c$
+nnoremap dI d^
+nnoremap dA d$
+
+" faster vertical moving
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
+
+nnoremap mm :noh<cr>
+
+" escape is far
+inoremap jk <esc>
+inoremap jj <esc>
+
+" don't use enter in normal mode
+nmap <cr> <nop>
+
+" ctrl ui for tabs, hjkl for windows
+noremap <c-u> gT
+noremap <c-i> gt
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+set virtualedit+=onemore
