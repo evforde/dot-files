@@ -129,7 +129,7 @@ set foldmethod=indent
 " leader stuff
 let mapleader=" "
 nnoremap <leader>w :w<cr>
-nnoremap <silent> <leader><space> :noh<cr>
+nnoremap <silent> mm :noh<cr>
 nnoremap <leader>s :mksession!<CR>
 
 " escape is far
@@ -187,7 +187,7 @@ augroup END
 " git commands on current file
 map <leader>d :GitGutterLineHighlightsToggle<cr>
 map <leader>s :Gstatus<cr>
-map <leader>o :Gbrowse<cr>
+map <leader>o :GBrowse<cr>
 map <leader>b :Git blame<cr>
 map <leader>n ]c
 map <leader>N [c
