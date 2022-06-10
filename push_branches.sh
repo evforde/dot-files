@@ -32,7 +32,7 @@ function push_branch {
   echo ""
   echo "Force pushed to $BRANCH_NAME and base/$BRANCH_NAME"
   echo "Open a PR at $REPO_URL/compare/base/$BRANCH_NAME...$BRANCH_NAME?expand=1"
-  [[ ! -z "$OLD_COMMIT_HASH" ]] && echo "Check out old commit at $OLD_COMMIT_HASH."
+  [[ ! -z "$OLD_COMMIT_HASH" ]] && echo "Check out old commit at $OLD_COMMIT_HASH." || true
 }
 
 echo "Refreshing all remote branches..."
