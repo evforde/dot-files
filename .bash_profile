@@ -39,7 +39,8 @@ alias grm="git rebase -i origin/master"
 alias gfp="git fetch -p"
 alias gp="git push origin master"
 alias gpo="git push origin"
-alias gs="git status"
+alias gs="git status -s"
+alias gss="git status"
 alias gsf="git diff --name-only HEAD^ HEAD"
 alias gst="git stash"
 alias gstp="git stash pop"
@@ -74,3 +75,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 export PGDATA=/opt/homebrew/var/postgres start
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+source ~/dot-files/.fp_rc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

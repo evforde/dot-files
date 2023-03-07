@@ -1,0 +1,4 @@
+alias run_fe="FORCE_FOOTPRINT_JS_TO_USE_LOCAL=true NEXT_PUBLIC_TENANT_KEY=ob_live_LWjMjNNHkfUWAaFk02zAJK NEXT_PUBLIC_API_BASE_URL=http://localhost:8000 yarn dev --filter=dashboard --filter=bifrost --filter=handoff --filter=demos"
+alias run_fe_prod="NEXT_PUBLIC_API_BASE_URL=https://api.onefootprint.com yarn dev --filter=dashboard --filter=bifrost --filter=handoff"
+export AIRPLANE_INSTALL="/Users/elliott/.airplane"
+export PATH="$AIRPLANE_INSTALL/bin:$PATH"
