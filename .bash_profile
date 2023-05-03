@@ -40,7 +40,7 @@ alias gfp="git fetch -p"
 alias gp="git push origin master"
 alias gpo="git push origin"
 alias gs="git status -s"
-alias gss="git status"
+alias gsv="git status"
 alias gsf="git diff --name-only HEAD^ HEAD"
 alias gst="git stash"
 alias gstp="git stash pop"
@@ -52,6 +52,13 @@ alias gdm="git diff origin/master"
 alias gpl="git pull origin master --rebase"
 alias gsub="git submodule update"
 alias gsom="git rev-parse origin/master | tee >(pbcopy)"
+
+
+alias gbt="gt branch track"
+alias gbs="gt branch submit"
+alias gss="gt stack submit"
+alias grs="gt repo sync -f"
+alias grsr="gt repo sync -rf"
 
 alias tmux="TERM=screen-256color-bce tmux"
 
