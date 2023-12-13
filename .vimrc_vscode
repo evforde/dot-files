@@ -31,7 +31,9 @@ inoremap <c-p> <esc>pli
 " paste from clipboard register
 nnoremap P "+p
 " paste in selection without deleting yanked text
+" TODO this doesn't work when you select visual bottom to top and then use p
 vnoremap p <esc>`>pgv"_d
+" vnoremap p "_dkp
 
 " make things a little easier
 map qq :bd<cr>
@@ -45,7 +47,6 @@ map W w
 nnoremap <silent> T magg
 nnoremap <silent> G maG
 nnoremap / ms/
-nmap ]] `a  " go mark that was left before navigation
 
 " open tags in new tab
 nnoremap <c-\> <c-w><c-]><c-w>T
