@@ -12,7 +12,7 @@ jj-sync() {(
 
 jj-restack() {(
   set -euxo pipefail
-  jj rebase -b "all:(mine() & local_trunk()..)" -d "trunk()" --skip-emptied
+  jj rebase -b "all:(mine() & local_trunk().. & bookmarks(glob:'$USER/*'))" -d "trunk()" --skip-emptied
 )}
 
 jj-submit-all() {(
