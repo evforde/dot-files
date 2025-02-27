@@ -54,14 +54,18 @@ alias gsub="git submodule update"
 alias gsom="git rev-parse origin/master | tee >(pbcopy)"
 
 
-alias gbt="fp branch track"
-alias gbc="fp branch create"
-alias gbs="fp branch submit"
-alias gss="fp stack submit"
-alias gsr="fp stack restack"
-alias gts="fp repo sync -f"
-alias gbu="fp branch up"
-alias gbd="fp branch down"
+alias gls="pc log short"
+alias gbt="pc branch track"
+alias gbc="pc branch create"
+# alias gss="pc stack submit --no-interactive"
+alias gbs="pc branch submit --no-interactive"
+alias gsr="pc stack restack"
+alias gtc="pc continue"
+alias gts="pc repo sync --restack"
+alias gbu="pc branch up"
+alias gbd="pc branch down"
+alias gmo="pc upstack onto"
+alias gmom="pc upstack onto master"
 
 alias tmux="TERM=screen-256color-bce tmux"
 
@@ -95,3 +99,11 @@ source ~/dot-files/.fp_rc
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+alias lsofp="sudo lsof -iTCP -sTCP:LISTEN -n -P"
+
+# Added by Windsurf
+export PATH="/Users/elliott/.codeium/windsurf/bin:$PATH"
