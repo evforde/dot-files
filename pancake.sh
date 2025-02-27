@@ -50,8 +50,7 @@ jj-submit() {(
   jj bookmark set $BRANCH_NAME -r $CHANGE_ID
   jj bookmark set $MQ_BRANCH_NAME -r $MQ_CHANGE_ID --allow-backwards
 
-  jj git push -b exact:$MQ_BRANCH_NAME --allow-new
-  jj git push -b exact:$BRANCH_NAME --allow-new
+  jj git push -b glob:"*/$CHANGE_ID" --allow-new
   set +x
   if [[ "$(gh pr list --head $BRANCH_NAME --json number)" == "[]" ]]; then
     echo Creating PR...
