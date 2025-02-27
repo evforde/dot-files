@@ -107,3 +107,8 @@ alias lsofp="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # Added by Windsurf
 export PATH="/Users/elliott/.codeium/windsurf/bin:$PATH"
+
+# jj autocompletions
+source <(jj util completion bash)
+
+source ~/dot-files/pancake.sh
