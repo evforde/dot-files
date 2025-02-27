@@ -55,7 +55,7 @@ jj-submit() {(
   set +x
   if [[ "$(gh pr list --head $BRANCH_NAME --json number)" == "[]" ]]; then
     echo Creating PR...
-    gh pr create --head $BRANCH_NAME --base $MQ_BRANCH_NAME
+    gh pr create --head $BRANCH_NAME --base $MQ_BRANCH_NAME --draft --fill
   else
     # Reset the base. Seems to be necessary to get the PR to update.
     echo Updating PR...
