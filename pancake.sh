@@ -42,7 +42,7 @@ jj-submit() {(
   COMMIT=$1;
   CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable()")"
   if [[ -z $CHANGE_ID ]]; then
-    echo "No immutable change found for revset $COMMIT"
+    echo "No mutable change found for revset $COMMIT"
     return 1
   fi
   BRANCH_NAME="$USER/$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r $CHANGE_ID)"
