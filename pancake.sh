@@ -66,7 +66,7 @@ jj-submit() {(
   fi
 
   # Build PR comment.
-  LOG=$(jj log -r "(fork_point(trunk()::$CHANGE_ID)::$CHANGE_ID | $CHANGE_ID::latest(heads($CHANGE_ID:: & bookmarks(glob:'$USER/*')))) & bookmarks(glob:'$USER/*')" --no-pager --color=never --no-graph -T "'- REPLACE_BRANCH_NAME:' ++ remote_bookmarks.filter(|b| b.name().starts_with('$USER/') && b.remote() == 'git').map(|b| b.name()) ++ \"\n\"")
+  LOG=$(jj log -r "(fork_point(local_trunk()::$CHANGE_ID)::$CHANGE_ID | $CHANGE_ID::latest(heads($CHANGE_ID:: & bookmarks(glob:'$USER/*')))) & bookmarks(glob:'$USER/*')" --no-pager --color=never --no-graph -T "'- REPLACE_BRANCH_NAME:' ++ remote_bookmarks.filter(|b| b.name().starts_with('$USER/') && b.remote() == 'git').map(|b| b.name()) ++ \"\n\"")
   echo $LOG | grep -o 'REPLACE_BRANCH_NAME.\+' | while read -r PATTERN; do
     STK_BRANCH_NAME=$(echo $PATTERN | sed -E 's/REPLACE_BRANCH_NAME:(.*)/\1/')
     PR_NUMBER="$(gh pr view $STK_BRANCH_NAME --json number --template '{{ .number }}')"
