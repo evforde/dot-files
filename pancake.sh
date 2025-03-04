@@ -24,7 +24,7 @@ jj-submit-all() {(
     REVSET="$1"
   fi
 
-  for CHANGE_ID in $(jj log -r "mine() & trunk().. & bookmarks(glob:'$USER/*') & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
+  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
     echo Submitting $CHANGE_ID...
     jj-submit $CHANGE_ID
     echo
