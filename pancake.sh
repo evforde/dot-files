@@ -35,9 +35,9 @@ jj-submit() {(
   set -euo pipefail
 
   COMMIT=$1;
-  CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable() &~conflicts()")"
+  CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable() & ~conflicts() & ~empty()")"
   if [[ -z $CHANGE_ID ]]; then
-    echo "No pushable change found for revset $COMMIT. Please make sure it is mutable and does not contain any conflicts."
+    echo "No pushable change found for revset $COMMIT. Please make sure it is mutable, it is not empty, and it does not contain any conflicts."
     return 1
   fi
   BRANCH_NAME="$USER/$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r $CHANGE_ID)"
