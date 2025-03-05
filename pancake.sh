@@ -34,15 +34,10 @@ jj-submit-all() {(
 jj-submit() {(
   set -euo pipefail
 
-  if [[ $(jj bookmark list --conflicted) ]]; then
-    echo "Conflicted bookmarks detected. Resolve conflicts and try again."
-    return 1
-  fi
-
   COMMIT=$1;
-  CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable()")"
+  CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable() &~conflicts()")"
   if [[ -z $CHANGE_ID ]]; then
-    echo "No mutable change found for revset $COMMIT"
+    echo "No pushable change found for revset $COMMIT. Please make sure it is mutable and does not contain any conflicts."
     return 1
   fi
   BRANCH_NAME="$USER/$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r $CHANGE_ID)"
