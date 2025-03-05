@@ -51,7 +51,7 @@ jj-submit() {(
   MQ_BRANCH_NAME="mq/$CHANGE_ID"
 
   set -x
-  jj bookmark set $BRANCH_NAME -r $CHANGE_ID
+  jj bookmark set $BRANCH_NAME -r $CHANGE_ID --allow-backwards
   jj bookmark set $MQ_BRANCH_NAME -r $MQ_CHANGE_ID --allow-backwards
 
   jj git push -b glob:"*/$CHANGE_ID" --allow-new
