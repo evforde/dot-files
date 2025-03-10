@@ -19,19 +19,23 @@ jj-submit-all() {(
   set -euo pipefail
 
   if [[ $# -eq 0 ]]; then
-    REVSET="all()"
+    REVSET="@"
   else
     REVSET="$1"
   fi
 
   for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
     echo Submitting $CHANGE_ID...
-    jj-submit $CHANGE_ID
+    jj-submit-no-comment $CHANGE_ID
     echo
+  done
+
+  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
+    jj-comment $CHANGE_ID
   done
 )}
 
-jj-submit() {(
+jj-submit-no-comment() {(
   set -euo pipefail
 
   COMMIT=$1;
@@ -59,6 +63,18 @@ jj-submit() {(
     echo Updating PR...
     gh pr edit $BRANCH_NAME --base $MQ_BRANCH_NAME
   fi
+)}
+
+jj-comment() {(
+  COMMIT=$1;
+  CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable() & ~conflicts() & ~empty()")"
+  if [[ -z $CHANGE_ID ]]; then
+    echo "No pushable change found for revset $COMMIT. Please make sure it is mutable, it is not empty, and it does not contain any conflicts."
+    return 1
+  fi
+  BRANCH_NAME="$USER/$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r $CHANGE_ID)"
+
+  echo "Building PR stack comment for $BRANCH_NAME"
 
   # Build PR comment.
   LOG=$(jj log -r "(fork_point(local_trunk()::$CHANGE_ID)::$CHANGE_ID | $CHANGE_ID::latest(heads($CHANGE_ID:: & bookmarks(glob:'$USER/*')))) & bookmarks(glob:'$USER/*')" --no-pager --color=never --no-graph -T "'- REPLACE_BRANCH_NAME:' ++ remote_bookmarks.filter(|b| b.name().starts_with('$USER/') && b.remote() == 'git').map(|b| b.name()) ++ \"\n\"")
@@ -95,6 +111,10 @@ jj-submit() {(
   rm $COMMENT_FILE
 )}
 
+jj-submit() {(
+  jj-submit-no-comment $1
+  jj-comment $1
+)}
 
 jj-s() {(
   if [[ $# -eq 0 ]]; then
