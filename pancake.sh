@@ -66,6 +66,8 @@ jj-submit-no-comment() {(
 )}
 
 jj-comment() {(
+  set -euo pipefail
+
   COMMIT=$1;
   CHANGE_ID="$(jj log --template 'change_id.shortest(8)' --no-pager --no-graph --color=never -r "$COMMIT & ~immutable() & ~conflicts() & ~empty()")"
   if [[ -z $CHANGE_ID ]]; then
@@ -112,6 +114,8 @@ jj-comment() {(
 )}
 
 jj-submit() {(
+  set -euo pipefail
+
   jj-submit-no-comment $1
   jj-comment $1
 )}
