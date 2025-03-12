@@ -4,15 +4,43 @@ jj-watch () {
 
 jj-sync() {(
   set -euo pipefail
+  jj-abandon
+
   DEFAULT_BRANCH=$(jj log -r "local_trunk()" -T "local_bookmarks.filter(|b| b.name() == 'master' || b.name() == 'main' || b.name() == 'trunk')" --no-pager --no-graph --color=never)
   set -x
   jj git fetch -b $DEFAULT_BRANCH -b "glob:$USER/*"
   jj bookmark set $DEFAULT_BRANCH --to "trunk()"
+
+  jj-restack
+)}
+
+jj-abandon() {(
+  set -euo pipefail
+
+  # Prompt the user to locally abandon changes for any PRs that are merged or closed.
+  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & ~immutable()" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"'); do
+    PR_INFO=$(gh pr list --state all -H "$USER/$CHANGE_ID" --json state,title,url --limit 1 -q '.[]')
+    PR_STATE=$(echo $PR_INFO | jq -r '.state')
+    PR_TITLE=$(echo $PR_INFO | jq -r '.title')
+    PR_URL=$(echo $PR_INFO | jq -r '.url')
+    if [[ "$PR_STATE" == "CLOSED" || "$PR_STATE" == "MERGED" ]]; then
+      echo "PR is $PR_STATE: $PR_TITLE"
+      echo "Would you like to abandon $CHANGE_ID? (Y/n)"
+      while true; do
+        read yn
+        case $yn in
+            [Yy]* ) jj abandon $CHANGE_ID; break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+      done
+    fi
+  done
 )}
 
 jj-restack() {(
   set -euxo pipefail
-  jj rebase -b "all:(mine() & local_trunk().. & bookmarks(glob:'$USER/*'))" -d "trunk()" --skip-emptied
+  jj rebase -b "all:(mine() & local_trunk().. & ~empty() & ~immutable())" -d "trunk()" --skip-emptied
 )}
 
 jj-submit-all() {(
