@@ -7,7 +7,6 @@ jj-sync() {(
   jj-abandon
 
   DEFAULT_BRANCH=$(jj log -r "local_trunk()" -T "local_bookmarks.filter(|b| b.name() == 'master' || b.name() == 'main' || b.name() == 'trunk')" --no-pager --no-graph --color=never)
-  set -x
   jj git fetch -b $DEFAULT_BRANCH -b "glob:$USER/*"
   jj bookmark set $DEFAULT_BRANCH --to "trunk()"
 
@@ -52,13 +51,13 @@ jj-submit-all() {(
     REVSET="$1"
   fi
 
-  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
+  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"'); do
     echo Submitting $CHANGE_ID...
     jj-submit-no-comment $CHANGE_ID
     echo
   done
 
-  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id ++ "\n"'); do
+  for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"'); do
     jj-comment $CHANGE_ID
   done
 )}
@@ -77,12 +76,10 @@ jj-submit-no-comment() {(
   MQ_CHANGE_ID=$(jj log -T 'if(parents.len() == 1, parents.map(|p| p.change_id()))' -r $COMMIT --no-pager --no-graph --color=never)
   MQ_BRANCH_NAME="mq/$CHANGE_ID"
 
-  set -x
   jj bookmark set $BRANCH_NAME -r $CHANGE_ID --allow-backwards
   jj bookmark set $MQ_BRANCH_NAME -r $MQ_CHANGE_ID --allow-backwards
 
   jj git push -b glob:"*/$CHANGE_ID" --allow-new
-  set +x
   if [[ "$(gh pr list --head $BRANCH_NAME --json number)" == "[]" ]]; then
     echo Creating PR...
     gh pr create --head $BRANCH_NAME --base $MQ_BRANCH_NAME --draft --fill
