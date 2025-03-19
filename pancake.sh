@@ -57,6 +57,13 @@ jj-submit-all() {(
     echo
   done
 
+  jj-comment-all $REVSET
+)}
+
+jj-comment-all() {(
+  set -euo pipefail
+
+  REVSET="$1"
   for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"'); do
     jj-comment $CHANGE_ID
   done
@@ -86,7 +93,7 @@ jj-submit-no-comment() {(
   else
     # Reset the base. Seems to be necessary to get the PR to update.
     echo Updating PR...
-    gh pr edit $BRANCH_NAME --base $MQ_BRANCH_NAME
+    # gh pr edit $BRANCH_NAME --base $MQ_BRANCH_NAME
   fi
 )}
 
