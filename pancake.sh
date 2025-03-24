@@ -4,13 +4,12 @@ jj-watch () {
 
 jj-sync() {(
   set -euo pipefail
-  jj-abandon
-
   DEFAULT_BRANCH=$(jj log -r "local_trunk()" -T "local_bookmarks.filter(|b| b.name() == 'master' || b.name() == 'main' || b.name() == 'trunk')" --no-pager --no-graph --color=never)
   jj git fetch -b $DEFAULT_BRANCH -b "glob:$USER/*"
   jj bookmark set $DEFAULT_BRANCH --to "trunk()"
 
   jj-restack
+  jj-abandon
 )}
 
 jj-abandon() {(
@@ -93,7 +92,7 @@ jj-submit-no-comment() {(
   else
     # Reset the base. Seems to be necessary to get the PR to update.
     echo Updating PR...
-    # gh pr edit $BRANCH_NAME --base $MQ_BRANCH_NAME
+    gh pr edit $BRANCH_NAME --base $MQ_BRANCH_NAME
   fi
 )}
 
