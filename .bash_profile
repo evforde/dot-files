@@ -53,6 +53,16 @@ alias gpl="git pull origin master --rebase"
 alias gsub="git submodule update"
 alias gsom="git rev-parse origin/master | tee >(pbcopy)"
 
+alias jl="jj log"
+alias js="jj show"
+alias jss="jj-submit-all"
+alias jts="jj-sync"
+alias jca="jj-comment-all"
+alias jn="jj new"
+alias je="jj edit"
+alias jsq="jj squash"
+alias jc="jj commit"
+
 
 alias gls="pc log short"
 alias gbt="pc branch track"

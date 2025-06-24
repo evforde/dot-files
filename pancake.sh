@@ -27,7 +27,7 @@ jj-abandon() {(
       while true; do
         read yn
         case $yn in
-            [Yy]* ) jj abandon $CHANGE_ID; break;;
+            [Yy]* ) jj abandon $CHANGE_ID; jj bookmark forget mq/$CHANGE_ID; break;;
             [Nn]* ) break;;
             * ) echo "Please answer yes or no.";;
         esac

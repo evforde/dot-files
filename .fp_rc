@@ -1,10 +1,10 @@
-alias run_fe="FORCE_FOOTPRINT_JS_TO_USE_LOCAL=true NEXT_PUBLIC_API_BASE_URL=http://localhost:8000 pnpm dev --filter=dashboard --filter=bifrost --filter=handoff --filter=hosted --filter=docs --filter=auth --filter=demos"
-alias run_fe_prod="NEXT_PUBLIC_API_BASE_URL=https://api.onefootprint.com pnpm dev --filter=dashboard --filter=bifrost --filter=handoff --filter=hosted --filter=docs --filter=auth --filter=demos"
+alias run_fe="FORCE_FOOTPRINT_JS_TO_USE_LOCAL=true NEXT_PUBLIC_API_BASE_URL=http://localhost:8000 pnpm dev --filter=dashboard --filter=bifrost --filter=handoff --filter=hosted --filter=docs --filter=demos"
+alias run_fe_prod="NEXT_PUBLIC_API_BASE_URL=https://api.onefootprint.com pnpm dev --filter=dashboard --filter=bifrost --filter=handoff --filter=hosted --filter=docs --filter=demos"
 export AIRPLANE_INSTALL="/Users/elliott/.airplane"
 export PATH="$AIRPLANE_INSTALL/bin:$PATH"
 export AWS_PROFILE=dev
 
-alias clean_crates="cargo clean -p db -p api_core -p api_route_businesses -p api_route_entities -p api_route_hosted_identify -p api_route_hosted_user -p api_route_hosted_business -p api_route_index -p api_route_integrations -p api_route_onboarding -p api_route_org -p api_route_private_root -p api_route_private_protected -p api_route_users -p api_route_vault_proxy -p api_route_webhooks -p api_routes_root -p api_server -p api_wire_types -p webhooks -p feature_flag"
+alias clean_crates="cargo clean -p db -p api_core -p api_route_businesses -p api_route_entities -p api_route_hosted_identify -p api_route_hosted_user -p api_route_hosted_business -p api_route_index -p api_route_integrations -p api_route_onboarding -p api_route_org -p api_route_private_root -p api_route_private_protected -p api_route_users -p api_route_vault_proxy -p api_route_webhooks -p api_routes_root -p api_server -p api_wire_types -p webhooks -p feature_flag -p playbook_db -p workflow_db -p decision_db -p tenant_iam_db -p db_models -p vault_db"
 
 # Doesn't work
 function merge_pr() {
