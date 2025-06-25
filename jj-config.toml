@@ -1,0 +1,62 @@
+[user]
+name = "Elliott Forde"
+email = "elliott@onefootprint.com"
+
+[git]
+subprocess = true
+sign-on-push = true
+push-bookmark-prefix = "elliott/"
+
+
+[revsets]
+short-prefixes = "trunk() | local_trunk() | (mine() & local_trunk()..)::"
+
+[ui]
+diff-editor = ":builtin"
+diff-formatter = "git"
+conflict-marker-style = "git"
+pager = [
+    "sh",
+    "-c",
+    "delta --side-by-side --minus-style 'syntax #500000' --plus-style 'syntax #005000' --file-transformation \"s|^|> $(jj root)/|g\" -w $(tput cols)",
+]
+
+[templates]
+log = '''
+separate(" ",
+  format_short_change_id_with_hidden_and_divergent_info(self),
+  separate(commit_summary_separator,
+    if(description,
+      description.first_line(),
+      label(if(empty, "empty"), description_placeholder),
+    ),
+    separate(" ",
+      if(conflict, label("conflict", "(conflict)")),
+      if(empty, label("empty", "(empty)")),
+      commit_id.short(8),
+      bookmarks.filter(|b| !b.name().starts_with("mq/")),
+    ),
+  ),
+)
+'''
+
+[colors]
+"node working_copy" = { fg = "magenta", bold = false }
+"prefix" = { fg = "bright magenta", bold = true }
+
+[aliases]
+push = ["git", "push"]
+m = ["log", "-r", "::local_trunk()"]
+up = ["edit", "-r", "@+"]
+down = ["edit", "-r", "@-"]
+sq = ["squash"]
+rb = ["rebase"]
+cp = ["duplicate"]
+
+[revset-aliases]
+"mine_flexible()" = "mine() | author_name('Elliott Forde')"
+"local_trunk()" = "latest(bookmarks(exact:'trunk') | bookmarks(exact:'main') | bookmarks(exact:'master'))"
+
+[fix.tools.rustfmt]
+command = ["rustfmt", "+nightly", "--emit", "stdout"]
+patterns = ["glob:'**/*.rs'"]
