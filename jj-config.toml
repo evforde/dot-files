@@ -13,13 +13,14 @@ short-prefixes = "trunk() | local_trunk() | (mine() & local_trunk()..)::"
 
 [ui]
 diff-editor = ":builtin"
-diff-formatter = "git"
+diff-formatter = ":git"
 conflict-marker-style = "git"
 pager = [
     "sh",
     "-c",
     "delta --side-by-side --minus-style 'syntax #500000' --plus-style 'syntax #005000' --file-transformation \"s|^|> $(jj root)/|g\" -w $(tput cols)",
 ]
+graph.style = "ascii"
 
 [templates]
 log = '''

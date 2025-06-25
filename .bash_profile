@@ -122,3 +122,5 @@ export PATH="/Users/elliott/.codeium/windsurf/bin:$PATH"
 source <(jj util completion bash)
 
 source ~/dot-files/pancake.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

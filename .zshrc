@@ -26,3 +26,6 @@ export PS1="${fg[green]}%D{%H:%M:%S} ${fg[magenta]}%m:${fg[yellow]}%1~ ${fg[cyan
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
