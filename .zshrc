@@ -1,3 +1,4 @@
+source ~/dot-files/pancake.sh
 
 alias ls="ls -G"
 alias ll="ls -lh"
