@@ -4,6 +4,7 @@
 brew install vim
 brew install ctags
 brew install ag
+brew install jj
 
 git config --global alias.lol "log --graph --oneline --decorate --color --all"
 git config --global user.name "Elliott Forde"
@@ -16,6 +17,7 @@ ln -s ~/dot-files/.bash_profile ~/.bash_profile
 ln -s ~/dot-files/.vimrc ~/.vimrc
 ln -s ~/dot-files/.vimrc_vscode ~/.vimrc_vscode
 ln -s ~/dot-files/.zshrc ~/.zshrc
+mkdir -p ~/.config/jj
 ln -s ~/dot-files/jj-config.toml ~/.config/jj/config.toml
 
 echo ""
