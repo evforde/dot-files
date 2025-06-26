@@ -9,7 +9,9 @@ push-bookmark-prefix = "elliott/"
 
 
 [revsets]
-short-prefixes = "(local_trunk()::mine())::"
+# Just use the default log revset. Key is that log and short-prefixes should be in sync
+log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+short-prefixes = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
 
 [ui]
 diff-editor = ":builtin"
