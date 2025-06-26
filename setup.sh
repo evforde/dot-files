@@ -6,6 +6,7 @@ brew install ctags
 brew install ag
 brew install jj
 brew install delta
+brew install uv
 
 git config --global alias.lol "log --graph --oneline --decorate --color --all"
 git config --global user.name "Elliott Forde"
