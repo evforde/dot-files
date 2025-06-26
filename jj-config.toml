@@ -9,7 +9,7 @@ push-bookmark-prefix = "elliott/"
 
 
 [revsets]
-short-prefixes = "trunk() | local_trunk() | (mine() & local_trunk()..)::"
+short-prefixes = "(local_trunk()::mine())::"
 
 [ui]
 diff-editor = ":builtin"
@@ -56,7 +56,7 @@ cp = ["duplicate"]
 
 [revset-aliases]
 "mine_flexible()" = "mine() | author_name('Elliott Forde')"
-"local_trunk()" = "latest(bookmarks(exact:'trunk') | bookmarks(exact:'main') | bookmarks(exact:'master'))"
+"local_trunk()" = "latest(bookmarks(exact:'master'))"
 
 [fix.tools.rustfmt]
 command = ["rustfmt", "+nightly", "--emit", "stdout"]
