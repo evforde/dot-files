@@ -58,7 +58,8 @@ jj-submit-all() {(
     echo
   done
 
-  uv run --python 3.9.11 --with-requirements "$SCRIPT_DIR/pancake/requirements.txt" python3 "$SCRIPT_DIR/pancake/pancake.py" $REVSET
+  TOP_CHANGE_ID=$(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"' | head -n1)
+  uv run --python 3.9.11 --with-requirements "$SCRIPT_DIR/pancake/requirements.txt" python3 "$SCRIPT_DIR/pancake/pancake.py" $TOP_CHANGE_ID
 )}
 
 jj-submit() {(

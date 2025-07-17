@@ -21,7 +21,6 @@ def get_repo():
         text=True
     ).strip()
     repo_str = "/".join(repo_str.split("\n"))
-    repo_str = "onefootprint/monorepo"
     org = repo_str.split("/")[0]
     return (g.get_repo(repo_str), org)
 
@@ -37,7 +36,6 @@ def get_children_prs(repo: Repository, org: str,branches: list[str]):
     return [prs[0] for prs in prs_lists]
 
 def write_comment_for_pr(all_prs: list[PullRequest], pr: PullRequest):
-    print("Running for", pr.number)
     body = "\n".join([
         f"- #{i.number} {' 👈' if i.number == pr.number else ''}"
         for i in children_prs
@@ -47,7 +45,6 @@ def write_comment_for_pr(all_prs: list[PullRequest], pr: PullRequest):
 {body}
 <!-- this_is_the_jj_pr_stack_comment -->
     """
-    print(f"\n\n\n{pr.number}\n{comment}\n\n\n")
     upsert_stack_comment(pr, comment)
 
 def upsert_stack_comment(pr: PullRequest, body: str):
@@ -66,6 +63,7 @@ if __name__ == "__main__":
     import sys
     change_id = sys.argv[1]
     assert change_id, "change_id is required"
+    print(f"Writing PR stack comment for \"{change_id}\" and its children")
 
     repo, org = get_repo()
     branches = get_children_branches(change_id)
