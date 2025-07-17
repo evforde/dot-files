@@ -1,3 +1,5 @@
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+
 jj-watch () {
   watch -n 1 --color --no-wrap jj --color=always --ignore-working-copy
 }
@@ -56,7 +58,14 @@ jj-submit-all() {(
     echo
   done
 
-  jj-comment-all $REVSET
+  uv run --python 3.9.11 --with-requirements "$SCRIPT_DIR/pancake/requirements.txt" python3 "$SCRIPT_DIR/pancake/pancake.py" $REVSET
+)}
+
+jj-submit() {(
+  set -euo pipefail
+
+  jj-submit-no-comment $1
+  uv run --python 3.9.11 --with-requirements "$SCRIPT_DIR/pancake/requirements.txt" python3 "$SCRIPT_DIR/pancake/pancake.py" $1
 )}
 
 jj-comment-all() {(
@@ -142,13 +151,6 @@ jj-comment() {(
   fi
 
   rm $COMMENT_FILE
-)}
-
-jj-submit() {(
-  set -euo pipefail
-
-  jj-submit-no-comment $1
-  jj-comment $1
 )}
 
 jj-s() {(
