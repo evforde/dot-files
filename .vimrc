@@ -135,6 +135,10 @@ nnoremap <leader>s :mksession!<CR>
 " escape is far
 inoremap jk <esc>
 inoremap jj <esc>
+inoremap Jk <esc>
+inoremap JK <esc>
+inoremap Jj <esc>
+inoremap JJ <esc>
 
 " don't use enter in normal mode
 nmap <cr> <nop>

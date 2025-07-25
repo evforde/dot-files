@@ -55,13 +55,17 @@ alias gsom="git rev-parse origin/master | tee >(pbcopy)"
 
 alias jl="jj log"
 alias js="jj show"
+alias jst="jj status"
 alias jss="jj-submit-all"
-alias jts="jj-sync"
+alias jsy="jj-sync"
 alias jca="jj-comment-all"
 alias jn="jj new"
 alias je="jj edit"
 alias jsq="jj squash"
 alias jc="jj commit"
+alias jr="jj rebase"
+alias jrr="jj rebase -r @ -d"
+alias jrs="jj rebase -s @ -d"
 
 
 alias gls="pc log short"
