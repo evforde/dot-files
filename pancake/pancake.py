@@ -43,7 +43,7 @@ def get_children_prs(repo: Repository, org: str, branches: list[str]):
             return list(repo.get_pulls(state="all", head=f"{org}:{branch}"))
 
         prs_lists = list(executor.map(get_prs_for_branch, branches))
-    return [prs[0] for prs in prs_lists]
+    return [prs[0] for prs in prs_lists if len(prs)]
 
 
 def write_comment_for_pr(all_prs: list[PullRequest], pr: PullRequest):
