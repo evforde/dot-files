@@ -52,13 +52,18 @@ jj-submit-all() {(
     REVSET="$1"
   fi
 
+  TOP_CHANGE_ID=$(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"' | head -n1)
+  if [[ -z $TOP_CHANGE_ID ]]; then
+    echo "No pushable change found for revset $REVSET. Please make sure it is mutable, it is not empty, and it does not contain any conflicts."
+    return 1
+  fi
+
   for CHANGE_ID in $(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"'); do
     echo Submitting $CHANGE_ID...
     jj-submit-no-comment $CHANGE_ID
     echo
   done
 
-  TOP_CHANGE_ID=$(jj log -r "mine() & trunk().. & ~empty() & $REVSET" --no-pager --no-graph --color=never -T 'change_id.shortest(8) ++ "\n"' | head -n1)
   uv run --python 3.9.11 --with-requirements "$SCRIPT_DIR/pancake/requirements.txt" python3 "$SCRIPT_DIR/pancake/pancake.py" $TOP_CHANGE_ID
 )}
 
