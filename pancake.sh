@@ -97,10 +97,10 @@ jj-submit-no-comment() {(
   MQ_CHANGE_ID=$(jj log -T 'if(parents.len() == 1, parents.map(|p| p.change_id()))' -r $COMMIT --no-pager --no-graph --color=never)
   MQ_BRANCH_NAME="mq/$CHANGE_ID"
 
-  jj bookmark set $BRANCH_NAME -r $CHANGE_ID --allow-backwards
-  jj bookmark set $MQ_BRANCH_NAME -r $MQ_CHANGE_ID --allow-backwards
+  jj bookmark set $BRANCH_NAME -r $CHANGE_ID --allow-backwards --quiet
+  jj bookmark set $MQ_BRANCH_NAME -r $MQ_CHANGE_ID --allow-backwards --quiet
 
-  jj git push -b glob:"*/$CHANGE_ID" --allow-new
+  jj git push -b glob:"*/$CHANGE_ID" --allow-new --quiet
   if [[ "$(gh pr list --head $BRANCH_NAME --json number)" == "[]" ]]; then
     echo Creating PR...
     gh pr create --head $BRANCH_NAME --base $MQ_BRANCH_NAME --draft --fill

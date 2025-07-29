@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     change_id = sys.argv[1]
     assert change_id, "change_id is required"
-    print(f'Writing PR stack comment for "{change_id}" and its children')
+    print(f'Writing PR stack comment for "{change_id}" and its children...')
 
     repo, org = get_repo()
     branches = get_children_branches(change_id)
