@@ -8,6 +8,7 @@ import concurrent.futures
 import subprocess
 
 USER = "elliott"
+COMMENT_STR = "this_is_the_jj_pr_stack_comment"
 
 
 def get_repo():
@@ -28,7 +29,7 @@ def get_repo():
 
 def get_children_branches(change_id: str):
     CHILDREN_CMD = f"""
-    jj log -r "(fork_point(local_trunk()::{change_id})::{change_id} | {change_id}::latest(heads({change_id}:: & bookmarks(glob:'{USER}/*')))) & bookmarks(glob:'{USER}/*')" --no-pager --color=never --no-graph -T "remote_bookmarks.filter(|b| b.name().starts_with('{USER}/') && b.remote() == 'git').map(|b| b.name()) ++ \\"\\n\\""
+    jj log -r "(fork_point(local_trunk()::{change_id})::{change_id} | {change_id}::latest(heads({change_id}:: & bookmarks(glob:'{USER}/*')))) & bookmarks(glob:'{USER}/*')" --no-pager --color=never --no-graph -T "'{USER}/' ++ change_id.shortest(8) ++ \\"\\n\\""
     """
     return (
         subprocess.check_output(CHILDREN_CMD, shell=True, text=True)
@@ -46,17 +47,16 @@ def get_children_prs(repo: Repository, org: str, branches: list[str]):
     return [prs[0] for prs in prs_lists if len(prs)]
 
 
-def write_comment_for_pr(all_prs: list[PullRequest], pr: PullRequest):
+def write_comment_for_pr(children_prs: list[PullRequest], pr: PullRequest):
     lines = [
         f"- #{i.number} {' 👈' if i.number == pr.number else ''}"
         for i in children_prs
     ]
-    body = "\n".join(lines)
-    comment = f"""
-### 🥞 Pull Request Stack
-{body}
-<!-- this_is_the_jj_pr_stack_comment -->
-    """
+    comment = "\n".join([
+        "### 🥞 Pull Request Stack",
+        *lines,
+        f"<!-- {COMMENT_STR} -->",
+    ])
     upsert_stack_comment(pr, comment)
 
 
@@ -67,7 +67,7 @@ def upsert_stack_comment(pr: PullRequest, body: str):
     # Find existing comment
     comments = list(pr.get_issue_comments())
     stack_comment = next(
-        (c for c in comments if "this_is_the_jj_pr_stack_comment" in c.body), None
+        (c for c in comments if COMMENT_STR in c.body), None
     )
     if stack_comment:
         stack_comment.edit(body)
